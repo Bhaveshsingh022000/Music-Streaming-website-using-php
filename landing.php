@@ -47,7 +47,13 @@ $row = $res1 -> fetch_assoc();
   </ul>
 
   <!-- SignUp -->
-
+  <div class="SignUpModal">
+  <form action="#">
+  <input type="text">
+  <input type="text">
+  <input type="text">
+  </form>
+  </div>
 
 <!-- Slider -->
   <div class="headContainer">
