@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 $serverName = "localhost";
 $username = "root";
 $password = "";
@@ -12,7 +12,7 @@ $row = $res1 -> fetch_assoc();
 
 
 
-?>
+?> -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,12 +47,25 @@ $row = $res1 -> fetch_assoc();
   </ul>
 
   <!-- SignUp -->
-  <div class="SignUpModal">
-  <form action="#">
-  <input type="text">
-  <input type="text">
-  <input type="text">
-  </form>
+  <div class="signUpModalContainer">
+    <div class="signUpModal">
+      <h2 style="text-align: center; letter-spacing: 3px;">Sign Up</h2>
+      <hr>
+      <form action="#" method="POST">
+        <input type="text" placeholder="Name"><br>
+        <input type="number" placeholder="phone no"><br>
+        <input type="text" placeholder="Email"><br>
+        <input type="password" placeholder="Password"><br>
+        <input type="password" placeholder="Confirm Password"><br>
+        <input type="radio" name="gender" value="male">
+        <label for="male">Male</label>
+        <input type="radio" name="gender" value="female">
+        <label for="female">Female</label><br>
+        <input type="checkbox" name="terms"> I accept the Terms and Conditions<br>
+        <button type="submit" name="signUp">Sign Up</button><br>
+        <p>Already have an account ?<span> Login</span></p>
+      </form>
+    </div>
   </div>
 
 <!-- Slider -->
@@ -65,15 +78,15 @@ $row = $res1 -> fetch_assoc();
     </ul>
     <div class="carousel-inner">
 
-      <div class="carousel-item active">
+      <!-- <div class="carousel-item active">
         <img src="<?php echo $row['slider_image']; ?>" alt="New York">
         <div class="carousel-caption">
           <h1><?php echo $row['caption_heading']; ?></h1>
           <p><?php echo $row['caption_content']; ?></p>
         </div>   
-      </div>
+      </div> -->
 
-    <?php 
+    <!-- <?php 
     while($f = $res1->fetch_assoc()){
       echo "<div class='carousel-item'>";
       echo "<img src=".$f['slider_image'].">";
@@ -83,7 +96,7 @@ $row = $res1 -> fetch_assoc();
       echo "</div>";   
       echo "</div>";
     } 
-    ?>
+    ?> -->
       
     </div>
     <a class="carousel-control-prev" href="#demo" data-slide="prev">
@@ -103,7 +116,7 @@ $row = $res1 -> fetch_assoc();
     <div class="container-fluid">
       <h2 style="color: white;">Newly Released</h2>
     <div class="row">
-      <?php 
+      <!-- <?php 
       $q2 = "select * from landing_grid limit 4";
       $res2=$conn->query($q2);
       while($f2 = $res2->fetch_assoc()){
@@ -118,14 +131,14 @@ $row = $res1 -> fetch_assoc();
         echo "</div>";
       echo "</div>";
       }
-      ?>
+      ?> -->
 
     </div>
 
     <h2 style="color: white;">Popular albums</h2>
     <div class="row">
 
-     <?php 
+     <!-- <?php 
       $q2 = "select * from landing_grid limit 4, 5";
       $res2=$conn->query($q2);
       while($f2 = $res2->fetch_assoc()){
@@ -140,7 +153,7 @@ $row = $res1 -> fetch_assoc();
         echo "</div>";
       echo "</div>";
       }
-      ?> 
+      ?>  -->
     </div>
 
 
