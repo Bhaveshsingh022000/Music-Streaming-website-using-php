@@ -1,0 +1,156 @@
+.headContainer{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    
+    z-index: -1;
+}
+#navBar{
+    width: 100%;
+    z-index: 1; 
+    position: absolute; 
+    background: rgba(0, 0, 0, 0.4);
+}
+#navBar a{
+    text-decoration: none;
+    font-size: 18px;
+    font-weight:600;
+    color: white;
+}
+#navBar a:hover{
+    color: rgb(42, 231, 159);
+}
+#navBar img{
+    position: absolute;
+    left: 10px;
+}
+#navBar [class*="active"]{
+    color: aqua;
+    border-radius: 3px;
+    /* border-bottom: 2px solid yellow; */
+    border-right: 3px solid rgb(42, 231, 159);
+    border-left: 3px solid rgb(42, 231, 159);
+}
+
+body{
+    margin: 0px;
+}
+
+#demo img{
+    height: 41.8rem;
+    width: 85.3rem;
+    /* width:"1400px"; 
+    height:"680px"; */
+    -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+
+.carousel-inner h1{
+    letter-spacing: 5px;
+}
+#demo:hover img{
+    cursor: context-menu;
+    transition: filter .5s ease-in-out;
+  -webkit-filter: grayscale(0%);
+  filter: grayscale(0%);
+}
+
+.main-container{
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    background: linear-gradient(to bottom right, #66ccff 0%, #000000 100%);
+    
+}
+.main-container h1{
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    color: white;
+    
+}
+
+.launchBtn{
+    border-radius: 30px;
+    position: relative;
+    left: 42%;
+    border: 2px solid;
+    height: 45px;
+    width: 230px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    background-color: rgb(226, 23, 124);
+    color: rgb(255, 255, 255);
+    margin-bottom: 60px;
+}
+[class*="col-"]{
+    margin-bottom: 70px;
+    text-align: center;
+}
+[class*="col-"] div.card{
+    width:300px; 
+    height: 370px;
+    /* border-bottom-left-radius: 25%;
+    border-bottom-right-radius: 25%; */
+}
+[class*="col-"] div.card-body{
+    width:auto; 
+    height: 100px;
+}
+[class*="col-"] button{
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    border: 2px solid white;
+    background-color: rgb(226, 23, 124);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+[class*="col-"] img{
+    height: 260px;
+}
+
+@media only screen and (min-height:1024px){
+    .main-container{
+        top: 65.3%;
+    }
+}
+
+@media only screen and (max-width: 1024px){
+    .headContainer{
+        height: 80%;
+    }
+    #demo img{
+        height: 38rem;
+        width: 80.3rem;
+    }
+    .main-container{
+        top: 44.5%;
+    }
+    
+    .main-container h1{
+        margin-bottom: 40px;
+    }
+    .main-container button{
+        left: 40%;
+        margin-bottom: 50px;
+    }
+    [class*="col-"] div.card{
+        width:220px; 
+        height: 280px;
+    }
+    [class*="col-"] img{
+        height: 180px;
+    }
+    [class*="col-"] button{
+        bottom: -43px;
+        font-size:12px;
+        width:30px;
+        height:30px;
+        left:175px;
+    }
+}
+
+    
