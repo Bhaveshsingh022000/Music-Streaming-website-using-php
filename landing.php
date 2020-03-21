@@ -1,4 +1,4 @@
-<!-- <?php
+<?php
 $serverName = "localhost";
 $username = "root";
 $password = "";
@@ -9,10 +9,7 @@ $q1 = "select * from landing";
 $res1=$conn->query($q1);
 $row = $res1 -> fetch_assoc();
 
-
-
-
-?> -->
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -78,15 +75,15 @@ $row = $res1 -> fetch_assoc();
     </ul>
     <div class="carousel-inner">
 
-      <!-- <div class="carousel-item active">
+      <div class="carousel-item active">
         <img src="<?php echo $row['slider_image']; ?>" alt="New York">
         <div class="carousel-caption">
           <h1><?php echo $row['caption_heading']; ?></h1>
           <p><?php echo $row['caption_content']; ?></p>
         </div>   
-      </div> -->
+      </div>
 
-    <!-- <?php 
+    <?php 
     while($f = $res1->fetch_assoc()){
       echo "<div class='carousel-item'>";
       echo "<img src=".$f['slider_image'].">";
@@ -96,7 +93,7 @@ $row = $res1 -> fetch_assoc();
       echo "</div>";   
       echo "</div>";
     } 
-    ?> -->
+    ?>
       
     </div>
     <a class="carousel-control-prev" href="#demo" data-slide="prev">
@@ -116,7 +113,7 @@ $row = $res1 -> fetch_assoc();
     <div class="container-fluid">
       <h2 style="color: white;">Newly Released</h2>
     <div class="row">
-      <!-- <?php 
+      <?php 
       $q2 = "select * from landing_grid limit 4";
       $res2=$conn->query($q2);
       while($f2 = $res2->fetch_assoc()){
@@ -131,14 +128,14 @@ $row = $res1 -> fetch_assoc();
         echo "</div>";
       echo "</div>";
       }
-      ?> -->
+      ?>
 
     </div>
 
     <h2 style="color: white;">Popular albums</h2>
     <div class="row">
 
-     <!-- <?php 
+     <?php 
       $q2 = "select * from landing_grid limit 4, 5";
       $res2=$conn->query($q2);
       while($f2 = $res2->fetch_assoc()){
@@ -153,7 +150,7 @@ $row = $res1 -> fetch_assoc();
         echo "</div>";
       echo "</div>";
       }
-      ?>  -->
+      ?> 
     </div>
 
 

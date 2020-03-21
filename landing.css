@@ -9,7 +9,7 @@
     width: 100%;
     z-index: 1; 
     position: absolute; 
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.9);
 }
 #navBar a{
     text-decoration: none;
@@ -40,13 +40,13 @@ body{
     height:100%;
     position:absolute;
     background-color:rgba(0,0,0,0.3);
-    z-index:2;
+    z-index: inherit 5;
 }
 .signUpModal{
     position: relative;
     width:35%;
     height:90%;
-    background-color:white;
+    background-color:rgb(175, 26, 26);
     left: 30%;
     top:7%;
     padding:37px;
