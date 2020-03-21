@@ -21,11 +21,7 @@ $row = $res1 -> fetch_assoc();
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-  <script>
-    function showSignUp(){
-    document.getElementsByClassName("signUpModalContainer").style.display = "block";
-}
-  </script>
+  <script src="landing.js">  </script>
     <title>Document</title>
 </head>
 <body>
@@ -41,7 +37,7 @@ $row = $res1 -> fetch_assoc();
       <a class="nav-link" href="home.php">Web player</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#" onclick="showSignUp()">Sign up </a>
+      <a class="nav-link" href="#" onclick="showSignUp(true)">Sign up </a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="#">Log in</a>
@@ -49,10 +45,10 @@ $row = $res1 -> fetch_assoc();
   </ul>
 
   <!-- SignUp -->
-  <div class="signUpModalContainer">
+  <div class="signUpModalContainer" id="sign">
   
     <div class="signUpModal">
-    <i class="fa fa-times-circle"></i>
+    <i onclick="showSignUp(false)" class="fa fa-times-circle"></i>
       <h2 style="text-align: center; letter-spacing: 3px;">Sign Up</h2>
       <hr>
       <form action="#" method="POST">
