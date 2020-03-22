@@ -120,6 +120,10 @@ body{
     color: rgb(120, 46, 134);
 
 }
+.signUpModal span:hover{
+    cursor: pointer;
+
+}
 
 .logInModalContainer{
     display: none;
@@ -142,19 +146,28 @@ body{
 .logInModal{
     position: relative;
     width:35.4%;
-    height:90%;
+    height:55%;
     background-color:white;
     left: 30%;
-    top:7%;
+    top:23%;
     padding:37px;
     padding-top: 10px;
     border-radius: 10px;
     text-align: left;
-    -webkit-animation-name: animatetop;
+    -webkit-animation-name: animatelog;
     -webkit-animation-duration: 0.6s;
-     animation-name: animatetop;
+     animation-name: animatelog;
      animation-duration: 0.6s
 }
+@-webkit-keyframes animatelog {
+    from {top:-300px; opacity:0} 
+    to {top:25%; opacity:1}
+  }
+  
+  @keyframes animatelog {
+    from {top:-300px; opacity:0}
+    to {top:25%; opacity:1}
+  }
 .logInModal hr{
     font-weight: bold;
     color: gray;
@@ -179,13 +192,18 @@ body{
     border-radius:5px;
     margin-bottom:20px;
 }
+.logInModal #forgot{
+    text-align: right;
+}
 .logInModal p{
     text-align: center;
     font-size: 15px;
 }
 .logInModal span{
     color: rgb(120, 46, 134);
-
+}
+.logInModal span:hover{
+    cursor: pointer;
 }
 
 #demo img{

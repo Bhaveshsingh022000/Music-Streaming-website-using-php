@@ -28,7 +28,7 @@ $row = $res1 -> fetch_assoc();
   <!-- Nav Bar -->
   <ul id="navBar" class="nav justify-content-end">
     <li class="nav-item">
-      <a href="#"><img src="269-2697881_computer-icons-user-clip-art-transparent-png-icon.png" width="40px" height="40px" class="rounded-circle"></a>
+      <a href="#"><img src="download.png" width="40px" height="40px" class="rounded-circle"></a>
     </li>
     <li class="nav-item">
       <a class="nav-link active" href="#">Home</a>
@@ -40,7 +40,7 @@ $row = $res1 -> fetch_assoc();
       <a class="nav-link" href="#" onclick="showSignUp(true)">Sign up </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Log in</a>
+      <a class="nav-link" href="#" onclick="showLogIn(true)">Log in</a>
     </li>
   </ul>
 
@@ -62,22 +62,23 @@ $row = $res1 -> fetch_assoc();
         <label for="female">Female</label><br>
         <input type="checkbox" name="terms"> I accept the Terms and Conditions<br>
         <button type="submit" name="signUp">Sign Up</button><br>
-        <p>Already have an account ?<span> Login</span></p>
+        <p>Already have an account ?<span onclick="switchSL(true)"> Login</span></p>
       </form>
     </div>
   </div>
 
   <!-- Login -->
-  <div class="logInModalContainer" id="login">
+  <div class="logInModalContainer" id="log">
     <div class="logInModal">
-    <i onclick="showSignUp(false)" class="fa fa-times-circle"></i>
-      <h2 style="text-align: center; letter-spacing: 3px;">Log in</h2>
+    <i onclick="showLogIn(false)" class="fa fa-times-circle"></i>
+      <h2 style="text-align: center; letter-spacing: 3px;">Log In</h2>
       <hr>
       <form action="#" method="POST">
         <input type="text" placeholder="Email"><br>
         <input type="password" placeholder="Password"><br>
-        <button type="submit" name="logIn">Login</button><br>
-        <p>New User ?<span> Sign Up</span></p>
+        <p id="forgot">Forgot Password ?</p>
+        <button type="submit" name="logIn">Log In</button><br>
+        <p>New User ?<span onclick="switchSL(false)"> Sign Up</span></p>
       </form>
     </div>
   </div>
