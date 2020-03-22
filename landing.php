@@ -6,7 +6,7 @@ $dbName = "music";
 $conn = new mysqli($serverName,$username,$password,$dbName);
 
 $q1 = "select * from landing";
-$res1=$conn->query($q1);
+$res1=$conn->query($q1); 
 $row = $res1 -> fetch_assoc();
 
 ?>
@@ -23,12 +23,29 @@ $row = $res1 -> fetch_assoc();
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
   <script src="landing.js">  </script>
     <title>Document</title>
+    <script>
+      $(document).ready(function(){
+        $('#tr2').hide();
+        $('#prevForm').hide();
+        $("#nex").click(function(){
+            $("#tr").slideUp();
+            $("#tr2").show(1090);
+            $('#prevForm').show(1090);
+        });
+        $("#prevForm").click(function(){
+            $("#tr2").slideUp();
+            $("#tr").slideDown();
+            $('#prevForm').hide();
+        });
+        
+});
+    </script>
 </head>
 <body>
   <!-- Nav Bar -->
   <ul id="navBar" class="nav justify-content-end">
     <li class="nav-item">
-      <a href="#"><img src="download.png" width="40px" height="40px" class="rounded-circle"></a>
+      <a href="#"><img src="830048.jpg" width="40px" height="40px" class="rounded-circle"></a>
     </li>
     <li class="nav-item">
       <a class="nav-link active" href="#">Home</a>
@@ -47,23 +64,33 @@ $row = $res1 -> fetch_assoc();
   <!-- SignUp -->
   <div class="signUpModalContainer" id="sign">
     <div class="signUpModal">
-    <i onclick="showSignUp(false)" class="fa fa-times-circle"></i>
-      <h2 style="text-align: center; letter-spacing: 3px;">Sign Up</h2>
-      <hr>
-      <form action="#" method="POST">
-        <input type="text" placeholder="Name"><br>
-        <input type="number" placeholder="phone no"><br>
-        <input type="text" placeholder="Email"><br>
-        <input type="password" placeholder="Password"><br>
-        <input type="password" placeholder="Confirm Password"><br>
-        <input type="radio" name="gender" value="male">
-        <label for="male">Male</label>
-        <input type="radio" name="gender" value="female">
-        <label for="female">Female</label><br>
-        <input type="checkbox" name="terms"> I accept the Terms and Conditions<br>
-        <button type="submit" name="signUp">Sign Up</button><br>
-        <p>Already have an account ?<span onclick="switchSL(true)"> Login</span></p>
-      </form>
+      <i onclick="showSignUp(false)" class="fa fa-times-circle"></i>
+      <i id="prevForm" class="fa fa-arrow-circle-left"></i>
+        <h2 style="text-align: center; letter-spacing: 3px;">Sign Up</h2>
+        <hr>
+            <form action="#" method="POST">
+              <div id="tr">
+                <input type="text" placeholder="Name"><br>
+                <input type="number" placeholder="phone no"><br>
+                <input type="text" placeholder="Email"><br>
+                <input type="password" placeholder="Password"><br>
+                <input type="password" placeholder="Confirm Password"><br>
+                <input type="radio" name="gender" value="male">
+                <label for="male">Male</label>
+                <input type="radio" name="gender" value="female">
+                <label for="female">Female</label><br>
+                <input type="checkbox" name="terms"> I accept the Terms and Conditions<br>
+                <button type="button" name="next" id="nex">Next</button><br>
+              </div>
+              <div id="tr2">
+                Select Profile Picture : 
+                <input type="file" name="profilePic" id=""><br>
+                <img src="1563174.jpg" alt=""><br><br>
+                Date Of Birth : <input type="date" name="" id=""><br><br>
+                <button type="submit" name="signUp">Sign Up</button><br>
+              </div>
+              <p>Already have an account ?<span onclick="switchSL(true)"> Login</span></p>
+            </form>
     </div>
   </div>
 
@@ -101,7 +128,8 @@ $row = $res1 -> fetch_assoc();
         </div>   
       </div>
 
-    <?php 
+    <?php
+    
     while($f = $res1->fetch_assoc()){
       echo "<div class='carousel-item'>";
       echo "<img src=".$f['slider_image'].">";
