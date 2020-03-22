@@ -6,9 +6,4 @@ function showSignUp(x){
         document.getElementById("sign").style.display = "none";
     }
 }
-var signUp = document.getElementById("sign");
-window.onclick = function(event){
-    if(event.target==signUp){
-        this.alert("cj");
-    }
-}
+

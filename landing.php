@@ -46,7 +46,6 @@ $row = $res1 -> fetch_assoc();
 
   <!-- SignUp -->
   <div class="signUpModalContainer" id="sign">
-  
     <div class="signUpModal">
     <i onclick="showSignUp(false)" class="fa fa-times-circle"></i>
       <h2 style="text-align: center; letter-spacing: 3px;">Sign Up</h2>
@@ -64,6 +63,21 @@ $row = $res1 -> fetch_assoc();
         <input type="checkbox" name="terms"> I accept the Terms and Conditions<br>
         <button type="submit" name="signUp">Sign Up</button><br>
         <p>Already have an account ?<span> Login</span></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- Login -->
+  <div class="logInModalContainer" id="login">
+    <div class="logInModal">
+    <i onclick="showSignUp(false)" class="fa fa-times-circle"></i>
+      <h2 style="text-align: center; letter-spacing: 3px;">Log in</h2>
+      <hr>
+      <form action="#" method="POST">
+        <input type="text" placeholder="Email"><br>
+        <input type="password" placeholder="Password"><br>
+        <button type="submit" name="logIn">Login</button><br>
+        <p>New User ?<span> Sign Up</span></p>
       </form>
     </div>
   </div>
