@@ -10,6 +10,21 @@ $res1=$conn->query($q1);
 $row = $res1 -> fetch_assoc();
 
 ?>
+
+<!-- Profile Picture Upload -->
+<?php
+if(isset($_POST['signUp']))
+{
+  $file = $_FILES['profilePic'];
+  $fileName = $file['name'];
+  $tempLoc = $file['tmp_name'];
+  $destination = 'Assets/users/profilePictures/'.$fileName;
+  move_uploaded_file($tempLoc,$destination);
+  
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,20 +40,20 @@ $row = $res1 -> fetch_assoc();
     <title>Document</title>
     <script>
       $(document).ready(function(){
+           
         $('#tr2').hide();
-        $('#prevForm').hide();
-        $("#nex").click(function(){
-            $("#tr").slideUp();
-            $("#tr2").show(1090);
-            $('#prevForm').show(1090);
-        });
+    $('#prevForm').hide();
         $("#prevForm").click(function(){
             $("#tr2").slideUp();
             $("#tr").slideDown();
             $('#prevForm').hide();
         });
         
-});
+        });
+        function t(){
+          console.log(document.getElementById('signUpBtn').value);
+        }
+        
     </script>
 </head>
 <body>
@@ -54,10 +69,10 @@ $row = $res1 -> fetch_assoc();
       <a class="nav-link" href="home.php">Web player</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#" onclick="showSignUp(true)">Sign up </a>
+      <a class="nav-link" onclick="showSignUp(true)">Sign up </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#" onclick="showLogIn(true)">Log in</a>
+      <a class="nav-link" onclick="showLogIn(true)">Log in</a>
     </li>
   </ul>
 
@@ -68,26 +83,36 @@ $row = $res1 -> fetch_assoc();
       <i id="prevForm" class="fa fa-arrow-circle-left"></i>
         <h2 style="text-align: center; letter-spacing: 3px;">Sign Up</h2>
         <hr>
-            <form action="#" method="POST">
+            <form action="#" method="POST" name="signUpForm" enctype="multipart/form-data">
               <div id="tr">
-                <input type="text" placeholder="Name"><br>
-                <input type="number" placeholder="phone no"><br>
-                <input type="text" placeholder="Email"><br>
-                <input type="password" placeholder="Password"><br>
-                <input type="password" placeholder="Confirm Password"><br>
-                <input type="radio" name="gender" value="male">
-                <label for="male">Male</label>
-                <input type="radio" name="gender" value="female">
-                <label for="female">Female</label><br>
-                <input type="checkbox" name="terms"> I accept the Terms and Conditions<br>
-                <button type="button" name="next" id="nex">Next</button><br>
+                <text id = "popName" data-toggle="popover" data-trigger="focus">
+                  <input type="text" placeholder="Name" name="name"></text><br>
+
+                <text id = "popPhone" data-toggle="popover" data-trigger="focus">
+                  <input type="number" placeholder="phone no" name="phone"></text><br>
+
+                <text id = "popemail" data-toggle="popover" data-trigger="focus">
+                  <input type="email" placeholder="Email" name="email" required></text><br>
+
+                <text id = "popPass" data-toggle="popover" data-trigger="focus">
+                  <input type="password" placeholder="Password" name="password"></text><br>
+                  
+                <text id = "popConfPass" data-toggle="popover" data-trigger="focus">
+                  <input type="password" placeholder="Confirm Password" name="confPassword"></text><br>
+
+                  <input type="radio" name="gender" value="male">                
+                  <label for="male">Male</label>                
+                  <input type="radio" name="gender" value="female">
+                  <label for="female">Female</label><br>
+                  <input type="checkbox" name="terms" name="term"> I accept the Terms and Conditions<br>
+                  <button type="button" name="next" id="nex" onclick="check()" >Next</button><br>
               </div>
               <div id="tr2">
                 Select Profile Picture : 
-                <input type="file" name="profilePic" id=""><br>
+                <input type="file" name="profilePic" name="fileUpload"><br>
                 <img src="1563174.jpg" alt=""><br><br>
-                Date Of Birth : <input type="date" name="" id=""><br><br>
-                <button type="submit" name="signUp">Sign Up</button><br>
+                Date Of Birth : <input type="date" name="dob"><br><br>
+                <button type="submit" name="signUp" id="signUpBtn">Sign Up</button><br>
               </div>
               <p>Already have an account ?<span onclick="switchSL(true)"> Login</span></p>
             </form>
@@ -117,6 +142,7 @@ $row = $res1 -> fetch_assoc();
       <li data-target="#demo" data-slide-to="0" class="active"></li>
       <li data-target="#demo" data-slide-to="1"></li>
       <li data-target="#demo" data-slide-to="2"></li>
+      <li data-target="#demo" data-slide-to="3"></li>
     </ul>
     <div class="carousel-inner">
 
