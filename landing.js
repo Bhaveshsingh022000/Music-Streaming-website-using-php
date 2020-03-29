@@ -90,7 +90,3 @@ function check(){
     
 }
 
-function update(){
-    var x = document.forms['signUpForm']['profilePic'].value;
-    alert(x);
-}
