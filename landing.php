@@ -11,6 +11,7 @@ $row = $res1 -> fetch_assoc();
 
 ?>
 
+
 <!-- Profile Picture Upload -->
 <?php
 if(isset($_POST['signUp']))
@@ -39,20 +40,20 @@ if(isset($_POST['signUp']))
   <script src="landing.js">  </script>
     <title>Document</title>
     <script>
-      $(document).ready(function(){
+    //   $(document).ready(function(){
            
-        $('#tr2').hide();
-    $('#prevForm').hide();
-        $("#prevForm").click(function(){
-            $("#tr2").slideUp();
-            $("#tr").slideDown();
-            $('#prevForm').hide();
-        });
+    //     $('#tr2').hide();
+    // $('#prevForm').hide();
+    //     $("#prevForm").click(function(){
+    //         $("#tr2").slideUp();
+    //         $("#tr").slideDown();
+    //         $('#prevForm').hide();
+    //     });
         
-        });
-        function t(){
-          console.log(document.getElementById('signUpBtn').value);
-        }
+    //     });
+    //     function t(){
+    //       console.log(document.getElementById('signUpBtn').value);
+    //     }
         
     </script>
 </head>
@@ -80,7 +81,6 @@ if(isset($_POST['signUp']))
   <div class="signUpModalContainer" id="sign">
     <div class="signUpModal">
       <i onclick="showSignUp(false)" class="fa fa-times-circle"></i>
-      <i id="prevForm" class="fa fa-arrow-circle-left"></i>
         <h2 style="text-align: center; letter-spacing: 3px;">Sign Up</h2>
         <hr>
             <form action="#" method="POST" name="signUpForm" enctype="multipart/form-data">
@@ -107,13 +107,13 @@ if(isset($_POST['signUp']))
                   <input type="checkbox" name="terms"> I accept the Terms and Conditions<br>
                   <button type="button" name="next" id="nex" onclick="check()" >Next</button><br>
               </div>
-              <div id="tr2">
+              <!-- <div id="tr2">
                 Select Profile Picture : 
-                <input type="file" name="profilePic" name="fileUpload"><br>
-                <img src="1563174.jpg" alt=""><br><br>
+                <input type="file" name="profilePic" onchange="update()" name="fileUpload"><br>
+                <img id="profilePicDisplay" alt=""><br><br>
                 Date Of Birth : <input type="date" name="dob"><br><br>
                 <button type="submit" name="signUp" id="signUpBtn">Sign Up</button><br>
-              </div>
+              </div> -->
               <p>Already have an account ?<span onclick="switchSL(true)"> Login</span></p>
             </form>
     </div>
@@ -198,7 +198,7 @@ if(isset($_POST['signUp']))
         echo "<a href='#'><button><i class='fa'>&#xf04b</i></button></a>";
         echo "</div>;";
         echo "</div>";
-      echo "</div>";
+        echo "</div>";
       }
       ?>
 
@@ -220,7 +220,7 @@ if(isset($_POST['signUp']))
         echo "<a href='#'><button><i class='fa'>&#xf04b</i></button></a>";
         echo "</div>;";
         echo "</div>";
-      echo "</div>";
+        echo "</div>";
       }
       ?> 
     </div>

@@ -26,7 +26,7 @@ function switchSL(x){
 }
 
 function check(){
-    var flag = true;
+    //var flag = true;
     var name = document.forms['signUpForm']['name'].value;
     var phone = document.forms['signUpForm']['phone'].value;
     var email = document.forms['signUpForm']['email'].value;
@@ -82,10 +82,15 @@ function check(){
         flag = false;
     }
     
-    if(flag){
-        $("#tr").slideUp();
-        $("#tr2").show(1090);
-        $('#prevForm').show(1090);    
-}
+    // if(flag){
+    //     $("#tr").slideUp();
+    //     $("#tr2").show(1090);
+    //     $('#prevForm').show(1090);    
+    // }
     
+}
+
+function update(){
+    var x = document.forms['signUpForm']['profilePic'].value;
+    alert(x);
 }
