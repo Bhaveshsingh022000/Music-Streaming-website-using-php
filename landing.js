@@ -37,49 +37,49 @@ function check(){
     
     if(name == ''){    
         document.forms['signUpForm']['name'].focus();
-        flag = false;
+        return false;
     }
     
     else if(!(name.match(/\b^[a-zA-Z ]{5,25}\b/i))){        
         document.forms['signUpForm']['name'].focus();       
-        flag = false;
+        return false;
     }
-    else if(phone = ''){        
+    else if(phone == ''){        
         document.forms['signUpForm']['phone'].focus();        
-        flag = false;
+        return false;
     }
     else if(Number.isInteger(phone)){        
         document.forms['signUpForm']['phone'].focus();        
         flag = false;
     }
-    else if(phone.match(/[0-9]{10}/) ){   
+    else if(!(phone.match(/\b[0-9]{10}\b/))){   
         console.log(phone.toString().length);     
         document.forms['signUpForm']['phone'].focus();        
-        flag = false;
+        return false;
     }
     else if(email == ''){       
         document.forms['signUpForm']['email'].focus();        
-        flag = false;
+        return false;
     }
     else if(!(email.match(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/))){
         document.forms['signUpForm']['email'].focus();
-        flag = false;
+        return false;
     }
     else if(!(pass.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/))){        
         document.forms['signUpForm']['password'].focus();
-        flag = false;
+        return false;
     }
     else if(pass != conpass){       
         document.forms['signUpForm']['confPassword'].focus();
-        flag = false;
+        return false;
     }
-    else if(gender ==""){
+    else if(gender.checked == false){
         document.forms['signUpForm']['gender'].focus();
-        flag = false;
+        return false;
     }
     else if(terms ==""){
         document.forms['signUpForm']['terms'].focus();
-        flag = false;
+        return false;
     }
     
     // if(flag){

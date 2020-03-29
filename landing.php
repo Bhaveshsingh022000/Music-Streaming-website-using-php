@@ -11,8 +11,7 @@ $row = $res1 -> fetch_assoc();
 
 ?>
 
-
-<!-- Profile Picture Upload -->
+<!-- Profile Picture Upload
 <?php
 if(isset($_POST['signUp']))
 {
@@ -21,9 +20,37 @@ if(isset($_POST['signUp']))
   $tempLoc = $file['tmp_name'];
   $destination = 'Assets/users/profilePictures/'.$fileName;
   move_uploaded_file($tempLoc,$destination);
+}
+?> -->
+<!-- Sign IN -->
+<?php
+if(isset($_POST['signUp'])){
+  $name = $_POST['name'];
+  $phone = $_POST['phone'];
+  $email = $_POST['email'];
+  $password = $_POST['password'];
+  $insertQuery = "insert into user(name,email,password,phone) values('$name','$email','$password','$phone')";
+  $conn->query($insertQuery);
+}
+?>
+<!-- login -->
+<?php
+if(isset($_POST['logIn'])){
+  $logEmail = $_POST['loginEmail'];
+  $logPass = $_POST['loginPass'];
+  $selectQuery = "select email, password, name from user where email='$logEmail' and password='$logPass'";
+  $resultq=$conn->query($selectQuery);
+  $show = $resultq->fetch_assoc();
+  if($show['email']==$logEmail && $show['password']==$logPass){
+    echo $show['name'];
+  }
+  else{
+    echo"nai";
+  }
   
 }
 ?>
+
 
 
 <!DOCTYPE html>
@@ -83,8 +110,8 @@ if(isset($_POST['signUp']))
       <i onclick="showSignUp(false)" class="fa fa-times-circle"></i>
         <h2 style="text-align: center; letter-spacing: 3px;">Sign Up</h2>
         <hr>
-            <form action="#" method="POST" name="signUpForm" enctype="multipart/form-data">
-              <div id="tr">
+            <form action="#" method="POST" onsubmit="return check()" name="signUpForm" enctype="multipart/form-data">
+              <!-- <div id="tr"> -->
                 <text id = "popName" data-toggle="popover" >
                   <input type="text" placeholder="Name" name="name"></text><br>
 
@@ -105,8 +132,8 @@ if(isset($_POST['signUp']))
                   <input type="radio" name="gender" value="female">
                   <label for="female">Female</label><br>
                   <input type="checkbox" name="terms"> I accept the Terms and Conditions<br>
-                  <button type="button" name="next" id="nex" onclick="check()" >Next</button><br>
-              </div>
+                  <button type="submit" name="signUp" id="signUpBtn">Sign Up</button><br>
+              <!-- </div> -->
               <!-- <div id="tr2">
                 Select Profile Picture : 
                 <input type="file" name="profilePic" onchange="update()" name="fileUpload"><br>
@@ -126,8 +153,8 @@ if(isset($_POST['signUp']))
       <h2 style="text-align: center; letter-spacing: 3px;">Log In</h2>
       <hr>
       <form action="#" method="POST">
-        <input type="text" placeholder="Email"><br>
-        <input type="password" placeholder="Password"><br>
+        <input type="text" name="loginEmail" placeholder="Email"><br>
+        <input type="password" name="loginPass" placeholder="Password"><br>
         <p id="forgot">Forgot Password ?</p>
         <button type="submit" name="logIn">Log In</button><br>
         <p>New User ?<span onclick="switchSL(false)"> Sign Up</span></p>
