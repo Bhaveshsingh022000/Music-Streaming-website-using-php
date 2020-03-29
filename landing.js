@@ -24,6 +24,7 @@ function switchSL(x){
         document.getElementById("sign").style.display = "block";
     }
 }
+
 function check(){
     var flag = true;
     var name = document.forms['signUpForm']['name'].value;
@@ -31,41 +32,55 @@ function check(){
     var email = document.forms['signUpForm']['email'].value;
     var pass = document.forms['signUpForm']['password'].value;
     var conpass = document.forms['signUpForm']['confPassword'].value;
-    if(name == ''){
-        document.getElementById('popName').setAttribute("data-content", "Name cannot be Empty");
-        $('[data-toggle="popover"]').popover('show');
-        document.forms['signUpForm']['name'].focus();
-        setTimeout(function(){
-            $('[data-toggle="popover"]').popover('hide');
-        },1500);
-        flag = false;
-    }
-    else if(!(name.match(/\b^[a-zA-Z ]{5,20}\b/i))){
-        $('[data-toggle="popover"]').popover();
+    var gender = document.forms['signUpForm']['gender'].value;
+    var terms = document.forms['signUpForm']['terms'].value;
+    
+    if(name == ''){    
         document.forms['signUpForm']['name'].focus();
         flag = false;
     }
-    else if(Number.isInteger(phone)){
-        flag = true;
-    }
-    else if(phone.toString().length <10 || phone.toString().length >10){
+    
+    else if(!(name.match(/\b^[a-zA-Z ]{5,25}\b/i))){        
+        document.forms['signUpForm']['name'].focus();       
         flag = false;
     }
-    else if(email == ''){
+    else if(phone = ''){        
+        document.forms['signUpForm']['phone'].focus();        
+        flag = false;
+    }
+    else if(Number.isInteger(phone)){        
+        document.forms['signUpForm']['phone'].focus();        
+        flag = false;
+    }
+    else if(phone.match(/[0-9]{10}/) ){   
+        console.log(phone.toString().length);     
+        document.forms['signUpForm']['phone'].focus();        
+        flag = false;
+    }
+    else if(email == ''){       
+        document.forms['signUpForm']['email'].focus();        
         flag = false;
     }
     else if(!(email.match(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/))){
+        document.forms['signUpForm']['email'].focus();
         flag = false;
     }
-    else if(!(pass.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/))){
+    else if(!(pass.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/))){        
+        document.forms['signUpForm']['password'].focus();
         flag = false;
     }
-    else if(pass != conpass){
+    else if(pass != conpass){       
+        document.forms['signUpForm']['confPassword'].focus();
         flag = false;
     }
-    
-    
-    
+    else if(gender ==""){
+        document.forms['signUpForm']['gender'].focus();
+        flag = false;
+    }
+    else if(terms ==""){
+        document.forms['signUpForm']['terms'].focus();
+        flag = false;
+    }
     
     if(flag){
         $("#tr").slideUp();

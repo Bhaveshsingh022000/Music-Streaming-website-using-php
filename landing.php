@@ -85,26 +85,26 @@ if(isset($_POST['signUp']))
         <hr>
             <form action="#" method="POST" name="signUpForm" enctype="multipart/form-data">
               <div id="tr">
-                <text id = "popName" data-toggle="popover" data-trigger="focus">
+                <text id = "popName" data-toggle="popover" >
                   <input type="text" placeholder="Name" name="name"></text><br>
 
-                <text id = "popPhone" data-toggle="popover" data-trigger="focus">
+                <text id = "popPhone" data-toggle="popover" >
                   <input type="number" placeholder="phone no" name="phone"></text><br>
 
-                <text id = "popemail" data-toggle="popover" data-trigger="focus">
+                <text id = "popEmail" data-toggle="popover" >
                   <input type="email" placeholder="Email" name="email" required></text><br>
 
-                <text id = "popPass" data-toggle="popover" data-trigger="focus">
+                <text id = "popPass" data-toggle="popover" >
                   <input type="password" placeholder="Password" name="password"></text><br>
                   
-                <text id = "popConfPass" data-toggle="popover" data-trigger="focus">
+                <text id = "popConfPass" data-toggle="popover" >
                   <input type="password" placeholder="Confirm Password" name="confPassword"></text><br>
 
                   <input type="radio" name="gender" value="male">                
                   <label for="male">Male</label>                
                   <input type="radio" name="gender" value="female">
                   <label for="female">Female</label><br>
-                  <input type="checkbox" name="terms" name="term"> I accept the Terms and Conditions<br>
+                  <input type="checkbox" name="terms"> I accept the Terms and Conditions<br>
                   <button type="button" name="next" id="nex" onclick="check()" >Next</button><br>
               </div>
               <div id="tr2">
