@@ -24,8 +24,49 @@
         </li>
         </ul>
         <div class="container-fluid">
+        <h2>Artist</h2>
             <div class="row">
-                <div class='col-lg-3'>
+                <div class='col-lg-2'>
+                    <div class='card' >
+                        <img class='card-img-top' src="Singer_Selena_Gomez_HD_Wallpaper.jpg" alt='Card image'>
+                        <div class='card-body'>
+                            <h4 class='card-title'>Selena Gomez</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class='col-lg-2'>
+                    <div class='card' >
+                        <img class='card-img-top' src="Singer_Selena_Gomez_HD_Wallpaper.jpg" alt='Card image'>
+                        <div class='card-body'>
+                            <h4 class='card-title'>Selena Gomez</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class='col-lg-2'>
+                    <div class='card' >
+                        <img class='card-img-top' src="Singer_Selena_Gomez_HD_Wallpaper.jpg" alt='Card image'>
+                        <div class='card-body'>
+                            <h4 class='card-title'>Selena Gomez</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class='col-lg-2'>
+                    <div class='card' >
+                        <img class='card-img-top' src="Singer_Selena_Gomez_HD_Wallpaper.jpg" alt='Card image'>
+                        <div class='card-body'>
+                            <h4 class='card-title'>Selena Gomez</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class='col-lg-2'>
+                    <div class='card' >
+                        <img class='card-img-top' src="Singer_Selena_Gomez_HD_Wallpaper.jpg" alt='Card image'>
+                        <div class='card-body'>
+                            <h4 class='card-title'>Selena Gomez</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class='col-lg-2'>
                     <div class='card' >
                         <img class='card-img-top' src="Singer_Selena_Gomez_HD_Wallpaper.jpg" alt='Card image'>
                         <div class='card-body'>
@@ -34,6 +75,60 @@
                     </div>
                 </div>
             </div>
+
+
+            <h2>Sample</h2>
+            <div class="row">
+                <div class='col-lg-2'>
+                    <div class='card' >
+                        <img class='card-img-top' src="Singer_Selena_Gomez_HD_Wallpaper.jpg" alt='Card image'>
+                        <div class='card-body'>
+                            <h4 class='card-title'>Selena Gomez</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class='col-lg-2'>
+                    <div class='card' >
+                        <img class='card-img-top' src="Singer_Selena_Gomez_HD_Wallpaper.jpg" alt='Card image'>
+                        <div class='card-body'>
+                            <h4 class='card-title'>Selena Gomez</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class='col-lg-2'>
+                    <div class='card' >
+                        <img class='card-img-top' src="Singer_Selena_Gomez_HD_Wallpaper.jpg" alt='Card image'>
+                        <div class='card-body'>
+                            <h4 class='card-title'>Selena Gomez</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class='col-lg-2'>
+                    <div class='card' >
+                        <img class='card-img-top' src="Singer_Selena_Gomez_HD_Wallpaper.jpg" alt='Card image'>
+                        <div class='card-body'>
+                            <h4 class='card-title'>Selena Gomez</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class='col-lg-2'>
+                    <div class='card' >
+                        <img class='card-img-top' src="Singer_Selena_Gomez_HD_Wallpaper.jpg" alt='Card image'>
+                        <div class='card-body'>
+                            <h4 class='card-title'>Selena Gomez</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class='col-lg-2'>
+                    <div class='card' >
+                        <img class='card-img-top' src="Singer_Selena_Gomez_HD_Wallpaper.jpg" alt='Card image'>
+                        <div class='card-body'>
+                            <h4 class='card-title'>Selena Gomez</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
         </div>
     </div>
 
