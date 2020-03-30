@@ -301,6 +301,7 @@ body{
 }
 [class*="col-"] img{
     height: 260px;
+    object-fit: cover;
 }
 
 @media only screen and (min-height:1024px){

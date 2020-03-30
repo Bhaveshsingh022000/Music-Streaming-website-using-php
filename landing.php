@@ -94,7 +94,7 @@ if(isset($_POST['logIn'])){
       <a class="nav-link active" href="#">Home</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="home.php">Web player</a>
+      <a class="nav-link" href="player.php">Web player</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" onclick="showSignUp(true)">Sign up </a>

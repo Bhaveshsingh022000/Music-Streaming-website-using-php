@@ -28,7 +28,7 @@
             <div class="row">
                 <div class='col-lg-2'>
                     <div class='card' >
-                        <img class='card-img-top' src="Singer_Selena_Gomez_HD_Wallpaper.jpg" alt='Card image'>
+                        <img class='card-img-top' src="221-2216666_hd-selena-gomez-wallpapers-desktop-cute-selena-gomez.jpg" alt='Card image'>
                         <div class='card-body'>
                             <h4 class='card-title'>Selena Gomez</h4>
                         </div>
@@ -36,55 +36,52 @@
                 </div>
                 <div class='col-lg-2'>
                     <div class='card' >
-                        <img class='card-img-top' src="Singer_Selena_Gomez_HD_Wallpaper.jpg" alt='Card image'>
+                        <img class='card-img-top' src="Billie-Eilish-debut-album-e1554050828895.jpg" alt='Card image'>
                         <div class='card-body'>
-                            <h4 class='card-title'>Selena Gomez</h4>
+                            <h4 class='card-title'>Billie Eilish</h4>
                         </div>
                     </div>
                 </div>
                 <div class='col-lg-2'>
                     <div class='card' >
-                        <img class='card-img-top' src="Singer_Selena_Gomez_HD_Wallpaper.jpg" alt='Card image'>
+                        <img class='card-img-top' src="TheWeekndHeartlessVideo.jpg" alt='Card image'>
                         <div class='card-body'>
-                            <h4 class='card-title'>Selena Gomez</h4>
+                            <h4 class='card-title'>The Weeknd</h4>
                         </div>
                     </div>
                 </div>
                 <div class='col-lg-2'>
                     <div class='card' >
-                        <img class='card-img-top' src="Singer_Selena_Gomez_HD_Wallpaper.jpg" alt='Card image'>
+                        <img class='card-img-top' src="halsey.jpg" alt='Card image'>
                         <div class='card-body'>
-                            <h4 class='card-title'>Selena Gomez</h4>
+                            <h4 class='card-title'>Halsey</h4>
                         </div>
                     </div>
                 </div>
                 <div class='col-lg-2'>
                     <div class='card' >
-                        <img class='card-img-top' src="Singer_Selena_Gomez_HD_Wallpaper.jpg" alt='Card image'>
+                        <img class='card-img-top' src="ed-sheeran-press-photo-2018-1519211115-editorial-long-form-0.png" alt='Card image'>
                         <div class='card-body'>
-                            <h4 class='card-title'>Selena Gomez</h4>
+                            <h4 class='card-title'>Ed Sheeran</h4>
                         </div>
                     </div>
                 </div>
                 <div class='col-lg-2'>
                     <div class='card' >
-                        <img class='card-img-top' src="Singer_Selena_Gomez_HD_Wallpaper.jpg" alt='Card image'>
+                        <img class='card-img-top' src="justinbieberyummy.jpg" alt='Card image'>
                         <div class='card-body'>
-                            <h4 class='card-title'>Selena Gomez</h4>
+                            <h4 class='card-title'>Justin Bieber</h4>
                         </div>
                     </div>
                 </div>
             </div>
 
 
-            <h2>Sample</h2>
+            <h2>Mood</h2>
             <div class="row">
                 <div class='col-lg-2'>
-                    <div class='card' >
+                    <div class='card' id="mood">
                         <img class='card-img-top' src="Singer_Selena_Gomez_HD_Wallpaper.jpg" alt='Card image'>
-                        <div class='card-body'>
-                            <h4 class='card-title'>Selena Gomez</h4>
-                        </div>
                     </div>
                 </div>
                 <div class='col-lg-2'>
