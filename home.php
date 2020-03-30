@@ -1,50 +1,41 @@
-<?php
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <script src="https://code.iconify.design/1/1.0.4/iconify.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" text="text/css" href='home.css' />
-    <script src="home.js"></script>
+    <link rel="stylesheet" text="text/css" href="home.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <title>Home</title>
 </head>
 <body>
-<audio id="player">
-  <source src="a.mp3" type="audio/ogg">
-</audio>
-<div class="container">
-<button class="play" id="pl" onclick="clickP(true)"><i style="font-size:18px; text-align:center" class="fa">&#xf04b;</i></button>
-<button class="pause" id="pa"  onclick="clickP(false)"><i style="font-size:18px; text-align:center" class="fa">&#xf04c;</i></button>
-<input class="seek" type="range" min="0" max="100" value="0"  name="progress" id="seek" />
-<button type="button" class="v1" id="v11" onclick="mute(true)" name="button"><i style="font-size:15px" class="fa">&#xf028;</i></button>
-<button type="button" class="v2" id="v22" onclick="mute(false)" name="button"><i><span class="iconify" data-icon="fa-solid:volume-slash" data-inline="false"></span></i></button>
-<input class="vol" id="volumeControl" type="range" min="0" max="100" value="50" />
-</div>
+    <div class="mainContainer">
+        <ul id="navbar" class="nav justify-content-center">
+        <li class="nav-item">
+        <a class="nav-link" href="#">HOME</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="#">DISCOVER</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="#">CHARTS</a>
+        </li>
+        </ul>
+        <div class="container-fluid">
+            <div class="row">
+                <div class='col-lg-3'>
+                    <div class='card' >
+                        <img class='card-img-top' src="Singer_Selena_Gomez_HD_Wallpaper.jpg" alt='Card image'>
+                        <div class='card-body'>
+                            <h4 class='card-title'>Selena Gomez</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
-<script>
-var x = document.getElementById('player');
-var y = document.getElementById('seek');
-var z = document.getElementById("volumeControl");
-x.addEventListener("timeupdate",function(){
-    y.max=x.duration;
-    y.value = (parseInt(x.currentTime));
-    y.style.background = 'linear-gradient(to right, #82CFD0 0%, #4CAF50 ' + ((y.value)*100)/y.max + '%, #fff ' + ((y.value)*100)/y.max + '%, white 100%)';
-    
-});
-y.oninput=function(){
-  var t = parseInt(this.value);
-  x.currentTime = t;
-}
-z.oninput=function(){
-  var t = this.value;
-  x.volume = t/100;
-}
-
-
-
-</script>
 </html>
