@@ -1,3 +1,10 @@
+<?php
+$serverName = "localhost";
+$username = "root";
+$password = "";
+$dbName = "music";
+$conn = new mysqli($serverName,$username,$password,$dbName);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,16 +32,10 @@
         </ul>
         <div class="container-fluid">
             <?php
-                $serverName = "localhost";
-                $username = "root";
-                $password = "";
-                $dbName = "music";
-                $conn = new mysqli($serverName,$username,$password,$dbName);
-
                 $queryArtist = 'select collection_title.collection_name, artist.Artist_name, artist.Artist_image from collection_title inner join collection on collection.collection_title_id = collection_title.collection_title_id inner join artist on collection.artist_id = artist.Artist_id';
                 $resultArtist = $conn->query($queryArtist);
                 $artist = array();
-                while($f = $resultArtist->fetch_assoc()){$artist [] = $f;}
+                while($f1 = $resultArtist->fetch_assoc()){$artist [] = $f1;}
                 echo "<h2>".$artist[0]['collection_name']."</h2>";
                 echo "<div class='row'>";
                 foreach($artist as $r){
@@ -42,117 +43,33 @@
                 echo "<div class='card' >";
                 echo "<img class='card-img-top' src=".$r['Artist_image']." alt='Card image'>";
                 echo "<div class='card-body'>";
-                echo "<h5 class='card-title'>Selena Gomez</h5>";
+                echo "<h5 class='card-title'>".$r['Artist_name']."</h5>";
                 echo "</div>";
                 echo "</div>";
                 echo "</div>";
                 }
                 echo "</div>";
             ?>
-            <div class="row">
-                <!-- <div class='col-lg-2'>
-                    <div class='card' >
-                        <img class='card-img-top' src="221-2216666_hd-selena-gomez-wallpapers-desktop-cute-selena-gomez.jpg" alt='Card image'>
-                        <div class='card-body'>
-                            <h5 class='card-title'>Selena Gomez</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class='col-lg-2'>
-                    <div class='card' >
-                        <img class='card-img-top' src="Billie-Eilish-debut-album-e1554050828895.jpg" alt='Card image'>
-                        <div class='card-body'>
-                            <h5 class='card-title'>Billie Eilish</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class='col-lg-2'>
-                    <div class='card' >
-                        <img class='card-img-top' src="TheWeekndHeartlessVideo.jpg" alt='Card image'>
-                        <div class='card-body'>
-                            <h5 class='card-title'>The Weeknd</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class='col-lg-2'>
-                    <div class='card' >
-                        <img class='card-img-top' src="halsey.jpg" alt='Card image'>
-                        <div class='card-body'>
-                            <h5 class='card-title'>Halsey</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class='col-lg-2'>
-                    <div class='card' >
-                        <img class='card-img-top' src="ed-sheeran-press-photo-2018-1519211115-editorial-long-form-0.png" alt='Card image'>
-                        <div class='card-body'>
-                            <h5 class='card-title'>Ed Sheeran</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class='col-lg-2'>
-                    <div class='card' >
-                        <img class='card-img-top' src="justinbieberyummy.jpg" alt='Card image'>
-                        <div class='card-body'>
-                            <h5 class='card-title'>Justin Bieber</h5>
-                        </div>
-                    </div>
-                </div> -->
-            </div>
 
-
-            <h2>Mood</h2>
-            <div class="row">
-                <div class='col-lg-2'>
-                    <div class='card' id="mood">
-                        <img class='card-img-top' src="lovethestars.jpg" alt='Card image'>
-                        <div class="card-body">
-                            <h6>Warm Fuzzy Feelings</h6>
-                        </div>
-                    </div>
-                </div>
-                <div class='col-lg-2'>
-                    <div class='card' id="mood">
-                        <img class='card-img-top' src="56-569654_wallpaper-mood-children-child-girl-legs-shoes-happy.jpg" alt='Card image'>
-                        <div class="card-body">
-                            <h6>Happiness Pills</h6>
-                        </div>
-                    </div>
-                </div>
-                <div class='col-lg-2'>
-                    <div class='card' id="mood">
-                        <img class='card-img-top' src="workout-gym-bodybuilder-wallpaper-preview.jpg" alt='Card image'>
-                        <div class="card-body">
-                            <h6>Workout Beats</h6>
-                        </div>
-                    </div>
-                </div>
-                <div class='col-lg-2'>
-                    <div class='card' id="mood">
-                        <img class='card-img-top' src="Woman-Shopping-Online-790x380-1.jpeg" alt='Card image'>
-                        <div class="card-body">
-                            <h6>Coffee & Chill</h6>
-                        </div>
-                    </div>
-                </div>
-                <div class='col-lg-2'>
-                    <div class='card' id="mood">
-                        <img class='card-img-top' src="a-sad-woman-looking-out-of-the-window.jpg" alt='Card image'>
-                        <div class="card-body">
-                            <h6>Sad Beats</h6>
-                        </div>
-                    </div>
-                </div>
-                <div class='col-lg-2'>
-                    <div class='card' id="mood">
-                        <img class='card-img-top' src="unnamed.jpg" alt='Card image'>
-                        <div class="card-body">
-                            <h6>Acoustic Chill</h6>
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
+            <?php
+                $queryMood = 'select collection_title.collection_name, playlist.playlist_name, playlist.playlist_image from collection_title inner join collection on collection.collection_title_id = collection_title.collection_title_id inner join playlist on collection.playlist_id = playlist.playlist_id';
+                $resultMood = $conn->query($queryMood);
+                $mood = array();
+                while($f2 = $resultMood->fetch_assoc()){$mood [] = $f2;}
+                echo "<h2>".$mood[0]['collection_name']."</h2>";
+                echo "<div class='row'>";
+                foreach($mood as $m){
+                echo "<div class='col-lg-2'>";
+                echo "<div class='card' id='mood'>";
+                echo "<img class='card-img-top' src=".$m['playlist_image']." alt='Card image'>";
+                echo "<div class='card-body'>";
+                echo "<h6 class='card-title'>".$m['playlist_name']."</h6>";
+                echo "</div>";
+                echo "</div>";
+                echo "</div>";
+                }
+                echo "</div>";
+            ?>
 
             <h2>Sing Along</h2>
             <div class="row">
