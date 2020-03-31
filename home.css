@@ -43,11 +43,34 @@ body{
 h2{
     color: white;
 }
+[class*="col-"] div#mood{
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius:0px;
+    border-bottom-left-radius:0px;
+    width:200px; 
+    height: 220px;
+    background-color:rgba(0,0,0,0.8);
+    color: white;
+    border-radius: 15px;
+}
 [class*="col-"] div#mood img{
     object-fit: cover;
-    border-radius: 15px;
-    height: 100%;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius:0px;
+    border-bottom-left-radius:0px;
+    height: 75%;
     width: 100%;
     margin-left:0%;
     margin-top:0%;
+}
+[class*="card-img-overlay"]{
+    width:100%; 
+    height:100%; 
+    border-radius:15px;
+    background-color:rgba(0,0,0,0.4);
+}
+[class*="card-img-overlay"] h4{
+    margin-top:5%;
 }
