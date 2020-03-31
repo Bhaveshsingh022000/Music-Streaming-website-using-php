@@ -230,6 +230,7 @@ body{
 #demo img{
     height: 41.8rem;
     width: 85.3rem;
+    object-fit: cover;
     /* width:"1400px"; 
     height:"680px"; */
     -webkit-filter: grayscale(100%);

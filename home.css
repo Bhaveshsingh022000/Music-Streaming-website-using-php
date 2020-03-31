@@ -74,3 +74,14 @@ h2{
 [class*="card-img-overlay"] h4{
     margin-top:5%;
 }
+[class*="col-"] div#sing{
+    text-align:center;
+    border:none;
+    background-color:rgba(0,0,0,0.0);
+}
+[class*="col-"] div#sing img{
+    height:80%;
+    width:90%;
+    margin-left:0px;
+}
+

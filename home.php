@@ -24,9 +24,33 @@
         </li>
         </ul>
         <div class="container-fluid">
-        <h2>Best of Artists</h2>
+            <?php
+                $serverName = "localhost";
+                $username = "root";
+                $password = "";
+                $dbName = "music";
+                $conn = new mysqli($serverName,$username,$password,$dbName);
+
+                $queryArtist = 'select collection_title.collection_name, artist.Artist_name, artist.Artist_image from collection_title inner join collection on collection.collection_title_id = collection_title.collection_title_id inner join artist on collection.artist_id = artist.Artist_id';
+                $resultArtist = $conn->query($queryArtist);
+                $artist = array();
+                while($f = $resultArtist->fetch_assoc()){$artist [] = $f;}
+                echo "<h2>".$artist[0]['collection_name']."</h2>";
+                echo "<div class='row'>";
+                foreach($artist as $r){
+                echo "<div class='col-lg-2'>";
+                echo "<div class='card' >";
+                echo "<img class='card-img-top' src=".$r['Artist_image']." alt='Card image'>";
+                echo "<div class='card-body'>";
+                echo "<h5 class='card-title'>Selena Gomez</h5>";
+                echo "</div>";
+                echo "</div>";
+                echo "</div>";
+                }
+                echo "</div>";
+            ?>
             <div class="row">
-                <div class='col-lg-2'>
+                <!-- <div class='col-lg-2'>
                     <div class='card' >
                         <img class='card-img-top' src="221-2216666_hd-selena-gomez-wallpapers-desktop-cute-selena-gomez.jpg" alt='Card image'>
                         <div class='card-body'>
@@ -73,7 +97,7 @@
                             <h5 class='card-title'>Justin Bieber</h5>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
 
 
@@ -134,9 +158,49 @@
             <div class="row">
                 <div class='col-lg-2'>
                     <div class='card' id="sing">
-                        <img class='card-img-top' src="unnamed.jpg" alt='Card image'>
+                        <img class='card-img-top' src="220px-Benny_Blanco,_Halsey_and_Khalid_Eastside.png" alt='Card image'>
                         <div class="card-body">
-                            <h6>Acoustic Chill</h6>
+                            <h6>Eastside</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class='col-lg-2'>
+                    <div class='card' id="sing">
+                        <img class='card-img-top' src="images.jpg" alt='Card image'>
+                        <div class="card-body">
+                            <h6>The night we met</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class='col-lg-2'>
+                    <div class='card' id="sing">
+                        <img class='card-img-top' src="faultinourstars-soundtrack.jpg" alt='Card image'>
+                        <div class="card-body">
+                            <h6>All of the stars</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class='col-lg-2'>
+                    <div class='card' id="sing">
+                        <img class='card-img-top' src="1_WKZVewH7xZQiy9jNKzpkuw.jpeg" alt='Card image'>
+                        <div class="card-body">
+                            <h6>Yummy</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class='col-lg-2'>
+                    <div class='card' id="sing">
+                        <img class='card-img-top' src="x1080.jpg" alt='Card image'>
+                        <div class="card-body">
+                            <h6>Lovely</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class='col-lg-2'>
+                    <div class='card' id="sing">
+                        <img class='card-img-top' src="MV5BZjE4ODllODctOGJkNy00N2MzLWJlYzYtNThlYmNhZjFiY2I2XkEyXkFqcGdeQXVyOTYxMzA0Mzk@._V1_.jpg" alt='Card image'>
+                        <div class="card-body">
+                            <h6>Without Me</h6>
                         </div>
                     </div>
                 </div>
