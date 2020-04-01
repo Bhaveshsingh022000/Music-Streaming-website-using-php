@@ -18,7 +18,7 @@ $a = 'a.mp3';
     <div class="mainContainer">
         <div class="jumbotron jumbotron-fluid">
             <div class="container-fluid">
-                <h1>Selena Gomez</h1>
+                <h1>Billie Eilish</h1>
                 <button>PLAY</button>
             </div>
         </div>
