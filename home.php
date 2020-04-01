@@ -39,7 +39,7 @@ $conn = new mysqli($serverName,$username,$password,$dbName);
                 echo "<h2>".$artist[0]['collection_name']."</h2>";
                 echo "<div class='row'>";
                 foreach($artist as $r){
-                echo "<div class='col-lg-2'>";
+                echo "<div class='col-lg-2' name='selena'>";
                 echo "<div class='card' >";
                 echo "<img class='card-img-top' src=".$r['Artist_image']." alt='Card image'>";
                 echo "<div class='card-body'>";

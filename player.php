@@ -1,11 +1,11 @@
 <?php
-$x=0;
-if($x==1){
-include('home.php');
-}
-else{
+$x=1;
+include_once('home.php');
+if(isset($_GET['selena'])){
   include('play.php');
 }
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

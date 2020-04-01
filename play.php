@@ -18,12 +18,23 @@ $a = 'a.mp3';
     <div class="mainContainer">
         <div class="jumbotron jumbotron-fluid">
             <div class="container-fluid">
-                <h1>Ed Sheeran</h1>
+                <h1>Justin Bieber</h1>
                 <button>PLAY</button>
             </div>
         </div>
         <table>
-
+            <?php
+            $i=0;
+            while($i<4){
+            echo "<tr>";
+                echo "<td id='td1'><i class='fa'>&#xf04b;</i></td>";
+                echo "<td id='td2'><img src='images.jpg'></td>";
+                echo "<td id='td3'><h4>Yummy</h4><p>Justin Bieber</p></td>";
+                echo "<td id='td4'>03:40</td>";
+            echo "</tr>";
+            $i = $i+1;
+            }
+            ?>
         </table>
     </div>
 </body>
