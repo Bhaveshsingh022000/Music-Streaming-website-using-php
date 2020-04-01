@@ -1,5 +1,11 @@
 <?php
+$x=0;
+if($x==1){
 include('home.php');
+}
+else{
+  include('play.php');
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,7 +20,7 @@ include('home.php');
 </head>
 <body>
 <audio id="player">
-  <source src="a.mp3" type="audio/ogg">
+  <source src="<?php echo $a; ?>" type="audio/ogg">
 </audio>
 <div class="playerContainer">
 <button class="play" id="pl" onclick="clickP(true)"><i style="font-size:18px; text-align:center" class="fa">&#xf04b;</i></button>
