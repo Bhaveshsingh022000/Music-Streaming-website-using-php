@@ -65,21 +65,25 @@ $conn = new mysqli($serverName,$username,$password,$dbName);
             
 
             <?php
-                $queryMood = 'select collection_title.collection_name, playlist.playlist_name, playlist.playlist_image from collection_title inner join collection on collection.collection_title_id = collection_title.collection_title_id inner join playlist on collection.playlist_id = playlist.playlist_id';
+                $queryMood = 'select collection_title.collection_name, playlist.p_name, playlist.playlist_name, playlist.playlist_image from collection_title inner join collection on collection.collection_title_id = collection_title.collection_title_id inner join playlist on collection.playlist_id = playlist.playlist_id';
                 $resultMood = $conn->query($queryMood);
                 $mood = array();
                 while($f2 = $resultMood->fetch_assoc()){$mood [] = $f2;}
                 echo "<h2>".$mood[0]['collection_name']."</h2>";
                 echo "<div class='row'>";
                 foreach($mood as $m){
+                    $temp = $m['p_name'];
+                echo "<form action='play.php' method='get' id=$temp>";
                 echo "<div class='col-lg-2'>";
-                echo "<div class='card' id='mood'>";
+                echo "<div class='card' id='mood' onclick=fun("."'".$temp."'".")>";
                 echo "<img class='card-img-top' src=".$m['playlist_image']." alt='Card image'>";
                 echo "<div class='card-body'>";
                 echo "<h6 class='card-title'>".$m['playlist_name']."</h6>";
+                echo "<input style='display:none' type=text name='mood' value=$temp>";
                 echo "</div>";
                 echo "</div>";
                 echo "</div>";
+                echo "</form>";
                 }
                 echo "</div>";
             ?>

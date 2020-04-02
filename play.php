@@ -23,6 +23,7 @@ if(isset($_GET['artist'])){
 }
 
 
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
