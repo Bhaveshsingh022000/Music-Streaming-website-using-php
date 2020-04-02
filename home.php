@@ -17,6 +17,12 @@ $conn = new mysqli($serverName,$username,$password,$dbName);
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <title>Home</title>
 </head>
+<script>
+    function fun(x){
+        document.getElementById(x).submit();
+        
+    }
+</script>
 <body>
     <div class="mainContainer">
         <ul id="navbar" class="nav justify-content-center">
@@ -32,24 +38,30 @@ $conn = new mysqli($serverName,$username,$password,$dbName);
         </ul>
         <div class="container-fluid">
             <?php
-                $queryArtist = 'select collection_title.collection_name, artist.Artist_name, artist.Artist_image from collection_title inner join collection on collection.collection_title_id = collection_title.collection_title_id inner join artist on collection.artist_id = artist.Artist_id';
+                $queryArtist = 'select collection_title.collection_name, artist.p_name, artist.Artist_name, artist.Artist_image from collection_title inner join collection on collection.collection_title_id = collection_title.collection_title_id inner join artist on collection.artist_id = artist.Artist_id';
                 $resultArtist = $conn->query($queryArtist);
                 $artist = array();
                 while($f1 = $resultArtist->fetch_assoc()){$artist [] = $f1;}
                 echo "<h2>".$artist[0]['collection_name']."</h2>";
                 echo "<div class='row'>";
                 foreach($artist as $r){
-                echo "<div class='col-lg-2' name='selena'>";
-                echo "<div class='card' >";
+                    $temp = $r['p_name'];
+                echo "<form method='get' id=$temp>";
+                echo "<div class='col-lg-2' >";
+                echo "<div class='card' onclick=fun("."'".$temp."'".")>";
                 echo "<img class='card-img-top' src=".$r['Artist_image']." alt='Card image'>";
                 echo "<div class='card-body'>";
                 echo "<h5 class='card-title'>".$r['Artist_name']."</h5>";
+                echo "<input style='display:none' type=text name='artist' value=$temp>";
                 echo "</div>";
                 echo "</div>";
                 echo "</div>";
+                echo "</form>";
                 }
                 echo "</div>";
             ?>
+            
+            
 
             <?php
                 $queryMood = 'select collection_title.collection_name, playlist.playlist_name, playlist.playlist_image from collection_title inner join collection on collection.collection_title_id = collection_title.collection_title_id inner join playlist on collection.playlist_id = playlist.playlist_id';

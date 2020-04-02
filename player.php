@@ -1,10 +1,16 @@
 <?php
-$x=1;
-include_once('home.php');
-if(isset($_GET['selena'])){
+$swap = 0;
+$queryName;
+if(isset($_GET['artist'])){
+  $swap = $swap+1;
+  $queryName = $_GET['artist'];
+}
+if($swap==0){
+include('home.php');
+}
+else{
   include('play.php');
 }
-
 
 ?>
 <!DOCTYPE html>
@@ -20,7 +26,7 @@ if(isset($_GET['selena'])){
 </head>
 <body>
 <audio id="player">
-  <source src="<?php echo $a; ?>" type="audio/ogg">
+  <source src="a.mp3" type="audio/ogg">
 </audio>
 <div class="playerContainer">
 <button class="play" id="pl" onclick="clickP(true)"><i style="font-size:18px; text-align:center" class="fa">&#xf04b;</i></button>

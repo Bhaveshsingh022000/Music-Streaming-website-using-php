@@ -1,5 +1,6 @@
 <?php
 $a = 'a.mp3';
+echo "$queryName";
 ?>
 <!DOCTYPE html>
 <html lang="en">
