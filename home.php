@@ -28,10 +28,10 @@ $conn = new mysqli($serverName,$username,$password,$dbName);
     <div class="mainContainer">
         <ul id="navbar" class="nav justify-content-center">
         <li class="nav-item">
-        <a class="nav-link" href="#">HOME</a>
+        <a class="nav-link" href="home.php">HOME</a>
         </li>
         <li class="nav-item">
-        <a class="nav-link" href="#">DISCOVER</a>
+        <a class="nav-link" href="discover.php">DISCOVER</a>
         </li>
         <li class="nav-item">
         <a class="nav-link" href="#">TRENDING</a>
@@ -94,10 +94,8 @@ $conn = new mysqli($serverName,$username,$password,$dbName);
                     <div class='card' id="sing">
                         <img class='card-img-top' src="220px-Benny_Blanco,_Halsey_and_Khalid_Eastside.png" alt='Card image'>
                         <div class="card-img-overlay">
-    <h4 class="card-title">John Doe</h4>
-    <p class="card-text">Some example text.</p>
-    <a href="#" class="btn btn-primary">See Profile</a>
-  </div>
+                            <button><i class="fa">&#xf04b;</i></button>
+                        </div>
                         <div class="card-body">
                             <h6>Eastside</h6>
                         </div>

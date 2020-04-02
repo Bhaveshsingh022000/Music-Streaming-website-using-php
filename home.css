@@ -73,6 +73,16 @@ h2{
     border-radius:50%;
     background-color:rgba(0,0,0,0.7);
 }
+[class*="card-img-overlay"] button{
+    background-color:rgba(0,0,0,0);
+    border:none;
+    color:white;
+    margin-top:40px;
+}
+[class*="card-img-overlay"] button i{
+    font-size:35px;
+    
+}
 #sing:hover [class*="card-img-overlay"]{
     display:block;
 }
