@@ -67,27 +67,41 @@ if(isset($_GET['artist'])){
     </div> -->
 
 
-    <div class="mainContainer">
-        <div class="jumbotron jumbotron-fluid">
-            <div class="container-fluid">
-                <h1>Warm Fuzzy Feelings</h1>
-                <button>PLAY</button>
-            </div>
-        </div>
-        <table>
-            <?php
+<?php
+    if(isset($_GET['mood'])){
+    $queryName = $_GET['mood'];
+    $queryTable = 'playlist';
+    $fetchQuery= "select * from "."`".$queryTable."`"."where p_name = "."'".$queryName."'";
+    if($fetchResult = $conn->query($fetchQuery)){
+        $fres = $fetchResult->fetch_assoc();
+    }
+    else{
+        echo "falide";
+    }
+
+    echo "<div class='mainContainer' style="."'"."background: linear-gradient(to top left, #000000 10%, ".$fres['color']."  100%);' >";
+        echo "<div class='jumbotron jumbotron-fluid' style="."'"."background: linear-gradient(to bottom, transparent 65%, rgba(0,0,0,0.8)), url(" .$fres['Playlist_cover_image']."); height:380px; object-fit:cover; background-size: cover; background-position:0px; '>";
+            echo "<div class='container-fluid'>";
+                echo "<h1>".$fres['playlist_name']."</h1>";
+                echo "<button style='background-color:".$fres['color']."'>PLAY</button>";
+            echo "</div>";
+        echo "</div>";
+        echo "<table>";
             $i=0;
             while($i<4){
             echo "<tr>";
                 echo "<td id='td1'><i class='fa'>&#xf04b;</i></td>";
-                echo "<td id='td2'><img src= ".$fres['Artist_image']."></td>";
+                echo "<td id='td2'><img src= ".$fres['playlist_image']."></td>";
                 echo "<td id='td3'><h4>Yummy</h4><p>Justin Bieber</p></td>";
                 echo "<td id='td4'>03:40</td>";
             echo "</tr>";
             $i = $i+1;
             }
-            ?>
-        </table>
-    </div>
+            
+        echo "</table>";
+    echo "</div>";
+        }
+?>
+
 </body>
 </html>
