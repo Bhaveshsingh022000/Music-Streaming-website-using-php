@@ -1,16 +1,19 @@
 <?php
-$swap = 0;
-$queryName;
-if(isset($_GET['artist'])){
-  $swap = $swap+1;
-  $queryName = $_GET['artist'];
-}
-if($swap==0){
-include('home.php');
-}
-else{
-  include('play.php');
-}
+// $swap = 0;
+// $queryName;
+// $queryTable;
+// if(isset($_GET['artist'])){
+//   $swap = $swap+1;
+//   $queryName = $_GET['artist'];
+//   $queryTable = 'artist';
+// }
+// if($swap==0){
+// include('home.php');
+// }
+// else{
+//   include('play.php');
+  
+// }
 
 ?>
 <!DOCTYPE html>

@@ -1,4 +1,5 @@
 <?php
+include('player.php');
 $serverName = "localhost";
 $username = "root";
 $password = "";
@@ -46,7 +47,7 @@ $conn = new mysqli($serverName,$username,$password,$dbName);
                 echo "<div class='row'>";
                 foreach($artist as $r){
                     $temp = $r['p_name'];
-                echo "<form method='get' id=$temp>";
+                echo "<form action='play.php' method='get' id=$temp>";
                 echo "<div class='col-lg-2' >";
                 echo "<div class='card' onclick=fun("."'".$temp."'".")>";
                 echo "<img class='card-img-top' src=".$r['Artist_image']." alt='Card image'>";
