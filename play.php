@@ -69,7 +69,7 @@ if(isset($_GET['artist'])){
     <div class="mainContainer">
         <div class="jumbotron jumbotron-fluid">
             <div class="container-fluid">
-                <h1>Warm Fuzzy Feelings</h1>
+                <h1>Workout Beats</h1>
                 <button>PLAY</button>
             </div>
         </div>
