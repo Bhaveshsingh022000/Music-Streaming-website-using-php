@@ -93,6 +93,11 @@ $conn = new mysqli($serverName,$username,$password,$dbName);
                 <div class='col-lg-2'>
                     <div class='card' id="sing">
                         <img class='card-img-top' src="220px-Benny_Blanco,_Halsey_and_Khalid_Eastside.png" alt='Card image'>
+                        <div class="card-img-overlay">
+    <h4 class="card-title">John Doe</h4>
+    <p class="card-text">Some example text.</p>
+    <a href="#" class="btn btn-primary">See Profile</a>
+  </div>
                         <div class="card-body">
                             <h6>Eastside</h6>
                         </div>
