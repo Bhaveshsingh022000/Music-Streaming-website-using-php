@@ -85,6 +85,7 @@ if(isset($_GET['artist'])){
         $sindex = 0;
             while($sres = $songsResult->fetch_assoc()){
                 $songsArray []=$sres['song_address'];
+                $songsNameArray []=$sres['song_name'];
             echo "<tr>";
             $sname = $sres['song_name'];
             $sartist = $fres['Artist_name'];
@@ -141,25 +142,70 @@ if(isset($_GET['artist'])){
         }
 ?>
 <script>
-   var currentIndex;
+   var currentIndex = 0;
+   var currentImage=<?php echo json_encode($simage); ?>;
+   var currentTitle=<?php echo json_encode($sartist); ?>;
+   var currentContent;
    function pla(x,y,z,w){
-       currentIndex = x;
-    var passedArray =  <?php echo json_encode($songsArray); ?>;
-       console.log(passedArray);
-       var g = document.getElementById('player');
-       g.setAttribute('src',passedArray[x]);
-       document.getElementById('pl').click();
-       document.getElementById('player_title').innerHTML = w;
-       document.getElementById('player_content').innerHTML = y;
-       document.getElementById('player_image').src = z;
-       document.getElementById('player_image').style.display = "block";
-       document.getElementById('splay').style.display = "none";
-       document.getElementById('spause').style.display = "block";
+        currentIndex = x;
+        var passedArray =  <?php echo json_encode($songsArray); ?>;
+        
+        currentContent = <?php echo json_encode($songsNameArray); ?>;
+        // console.log(currentContent);
+        var g = document.getElementById('player');
+        g.setAttribute('src',passedArray[x]);
+        document.getElementById('pl').click();
+        document.getElementById('player_title').innerHTML = w;
+        document.getElementById('player_content').innerHTML = y;
+        document.getElementById('player_image').src = z;
+        document.getElementById('player_image').style.display = "block";
+        document.getElementById('splay').style.display = "none";
+        document.getElementById('spause').style.display = "block";
    }
    function pau(){
        document.getElementById('pa').click();
        document.getElementById('splay').style.display = "block";
        document.getElementById('spause').style.display = "none";
+   }
+   function forw(){
+       if(currentIndex==7){
+           console.log('inside if');
+        var temp;
+       currentIndex = 0;
+       temp = currentIndex;
+       console.log(currentContent[temp]);
+       console.log('image'+currentImage);
+       console.log('title '+currentTitle);
+       pla(currentIndex,currentContent[temp],currentImage,currentTitle);
+       }
+       else{var temp;
+       currentIndex = parseInt(currentIndex)+1;
+       temp = currentIndex;
+       console.log(currentContent[temp]);
+       console.log('image'+currentImage);
+       console.log('title '+currentTitle);
+       pla(currentIndex,currentContent[temp],currentImage,currentTitle);
+       }
+   }
+   function back(){
+       if(currentIndex==0){
+           console.log('inside if');
+        var temp;
+       currentIndex = 0;
+       temp = currentIndex;
+       console.log(currentContent[temp]);
+       console.log('image'+currentImage);
+       console.log('title '+currentTitle);
+       pla(currentIndex,currentContent[temp],currentImage,currentTitle);
+       }
+       else{var temp;
+       currentIndex = parseInt(currentIndex)-1;
+       temp = currentIndex;
+       console.log(currentContent[temp]);
+       console.log('image'+currentImage);
+       console.log('title '+currentTitle);
+       pla(currentIndex,currentContent[temp],currentImage,currentTitle);
+       }
    }
    </script>
 </body>
