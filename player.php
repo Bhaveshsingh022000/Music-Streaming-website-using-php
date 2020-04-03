@@ -29,9 +29,10 @@
 </head>
 <body>
 <audio id="player">
-  <source src="a.mp3" type="audio/ogg">
+  <source type="audio/ogg">
 </audio>
 <div class="playerContainer">
+<img src="billieEilish.jpg">
 <button class="play" id="pl" onclick="clickP(true)"><i style="font-size:18px; text-align:center" class="fa">&#xf04b;</i></button>
 <button class="pause" id="pa"  onclick="clickP(false)"><i style="font-size:18px; text-align:center" class="fa">&#xf04c;</i></button>
 <input class="seek" type="range" min="0" max="100" value="0"  name="progress" id="seek" />
@@ -46,7 +47,7 @@ var y = document.getElementById('seek');
 var z = document.getElementById("volumeControl");
 x.addEventListener("timeupdate",function(){
     y.max=x.duration;
-    y.value = (parseInt(x.currentTime));
+    y.value = (parseInt(x.currentTime))+0.01;
     y.style.background = 'linear-gradient(to right, #82CFD0 0%, #4CAF50 ' + ((y.value)*100)/y.max + '%, #fff ' + ((y.value)*100)/y.max + '%, white 100%)';
     
 });
