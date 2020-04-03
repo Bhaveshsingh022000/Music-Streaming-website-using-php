@@ -40,6 +40,13 @@ function pla(x,y,z,w){
     document.getElementById('player_content').innerHTML = y;
     document.getElementById('player_image').src = z;
     document.getElementById('player_image').style.display = "block";
+    document.getElementById('splay').style.display = "none";
+    document.getElementById('spause').style.display = "block";
+}
+function pau(){
+    document.getElementById('pa').click();
+    document.getElementById('splay').style.display = "block";
+    document.getElementById('spause').style.display = "none";
 }
 </script>
 <body>
@@ -102,7 +109,7 @@ if(isset($_GET['artist'])){
             $sartist = $fres['Artist_name'];
             $simage = $fres['Artist_image'];
             $sadd = $sres['song_address'];
-                echo "<td id='td1'><i id='splay' class='fa' onclick='"."pla(`$sadd`,`$sartist`,`$simage`,`$sname`)'".">&#xf04b;</i></td>";
+                echo "<td id='td1'><i id='splay' class='fa' onclick='"."pla(`$sadd`,`$sartist`,`$simage`,`$sname`)'".">&#xf04b;</i><i id='spause' onclick='pau()' style='display:none' class='fa'>&#xf04c;</i></td>";
                 echo "<td id='td2'><img src= ".$fres['Artist_image']."></td>";
                 echo "<td id='td3'><h4>".$sres['song_name']."</h4><p>".$fres['Artist_name']."</p></td>";
                 echo "<td id='td4'>03:40</td>";
