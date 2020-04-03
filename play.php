@@ -29,7 +29,9 @@ $fres;
     <title>Document</title>
 </head>
 <script>
+   
 function pla(x,y,z,w){
+   
     console.log(z);
     var g = document.getElementById('player');
     g.setAttribute('src',x);
@@ -37,6 +39,7 @@ function pla(x,y,z,w){
     document.getElementById('player_title').innerHTML = w;
     document.getElementById('player_content').innerHTML = y;
     document.getElementById('player_image').src = z;
+    document.getElementById('player_image').style.display = "block";
 }
 </script>
 <body>
@@ -77,7 +80,7 @@ if(isset($_GET['artist'])){
         $fres = $fetchResult->fetch_assoc();
     }
     else{
-        echo "falide";
+        echo "failed";
     }
 
     echo "<div class='mainContainer' style="."'"."background: linear-gradient(to top left, #000000 10%, ".$fres['color']."  100%);' >";

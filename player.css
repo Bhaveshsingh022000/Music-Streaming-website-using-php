@@ -9,6 +9,7 @@ body{
     background-color: black;
 }
 .playerContainer img{
+    display: none;
     border-radius:10px;
     object-fit:cover;
     margin:15px;
@@ -30,6 +31,18 @@ body{
     top:50px;
     left:100px;
     color:white;
+}
+.playerContainer #current_time{
+    color:white;
+    position:absolute;
+    left:370px;
+    top:60px;
+}
+.playerContainer #total_time{
+    color:white;
+    position:absolute;
+    right:340px;
+    top:60px;
 }
 .play{
     position: fixed;
