@@ -39,6 +39,8 @@
 <p id="total_time">00:00</p>
 <button class="play" id="pl" onclick="clickP(true)"><i style="font-size:18px; text-align:center" class="fa">&#xf04b;</i></button>
 <button class="pause" id="pa"  onclick="clickP(false)"><i style="font-size:18px; text-align:center" class="fa">&#xf04c;</i></button>
+<button type="button" id="forw" name="button"><i class="fa fa-forward"></i></button>
+<button type="button" id="back"  name="button"><i class="fa fa-backward"></i></button>
 <input class="seek" type="range" min="0" max="100" value="0"  name="progress" id="seek" />
 <button type="button" class="v1" id="v11" onclick="mute(true)" name="button"><i style="font-size:15px" class="fa">&#xf028;</i></button>
 <button type="button" class="v2" id="v22" onclick="mute(false)" name="button"><i><span class="iconify" data-icon="fa-solid:volume-slash" data-inline="false"></span></i></button>

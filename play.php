@@ -28,27 +28,7 @@ $fres;
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Spicy+Rice&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
-<script>
-   
-function pla(x,y,z,w){
-   
-    console.log(z);
-    var g = document.getElementById('player');
-    g.setAttribute('src',x);
-    document.getElementById('pl').click();
-    document.getElementById('player_title').innerHTML = w;
-    document.getElementById('player_content').innerHTML = y;
-    document.getElementById('player_image').src = z;
-    document.getElementById('player_image').style.display = "block";
-    document.getElementById('splay').style.display = "none";
-    document.getElementById('spause').style.display = "block";
-}
-function pau(){
-    document.getElementById('pa').click();
-    document.getElementById('splay').style.display = "block";
-    document.getElementById('spause').style.display = "none";
-}
-</script>
+
 <body>
     <!-- <div class="mainContainer">
         <div class="jumbotron jumbotron-fluid" style="background: linear-gradient(to bottom, transparent 65%, rgba(0,0,0,0.8)), 
@@ -101,24 +81,28 @@ if(isset($_GET['artist'])){
         $ar_id = $fres['Artist_id'];
         $songQuery = "select * from songs where artist_id = $ar_id";
         $songsResult = $conn->query($songQuery);
-        
-            
+        $songsArray=Array();
+        $sindex = 0;
             while($sres = $songsResult->fetch_assoc()){
+                $songsArray []=$sres['song_address'];
             echo "<tr>";
             $sname = $sres['song_name'];
             $sartist = $fres['Artist_name'];
             $simage = $fres['Artist_image'];
-            $sadd = $sres['song_address'];
-                echo "<td id='td1'><i id='splay' class='fa' onclick='"."pla(`$sadd`,`$sartist`,`$simage`,`$sname`)'".">&#xf04b;</i><i id='spause' onclick='pau()' style='display:none' class='fa'>&#xf04c;</i></td>";
+            
+                echo "<td id='td1'><i id='splay' class='fa' onclick='"."pla(`$sindex`,`$sartist`,`$simage`,`$sname`)'".">&#xf04b;</i><i id='spause' onclick='pau()' style='display:none' class='fa'>&#xf04c;</i></td>";
                 echo "<td id='td2'><img src= ".$fres['Artist_image']."></td>";
                 echo "<td id='td3'><h4>".$sres['song_name']."</h4><p>".$fres['Artist_name']."</p></td>";
                 echo "<td id='td4'>03:40</td>";
+                
             echo "</tr>";
-            
+            $sindex = $sindex+1;
             }
             
         echo "</table>";
+        
     echo "</div>";
+    
 }
 
 
@@ -156,6 +140,27 @@ if(isset($_GET['artist'])){
     echo "</div>";
         }
 ?>
-
+<script>
+   var currentIndex;
+   function pla(x,y,z,w){
+       currentIndex = x;
+    var passedArray =  <?php echo json_encode($songsArray); ?>;
+       console.log(passedArray);
+       var g = document.getElementById('player');
+       g.setAttribute('src',passedArray[x]);
+       document.getElementById('pl').click();
+       document.getElementById('player_title').innerHTML = w;
+       document.getElementById('player_content').innerHTML = y;
+       document.getElementById('player_image').src = z;
+       document.getElementById('player_image').style.display = "block";
+       document.getElementById('splay').style.display = "none";
+       document.getElementById('spause').style.display = "block";
+   }
+   function pau(){
+       document.getElementById('pa').click();
+       document.getElementById('splay').style.display = "block";
+       document.getElementById('spause').style.display = "none";
+   }
+   </script>
 </body>
 </html>
