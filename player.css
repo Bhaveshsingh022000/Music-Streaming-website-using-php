@@ -8,6 +8,30 @@ body{
     height: 15%;
     background-color: black;
 }
+.playerContainer img{
+    border-radius:10px;
+    border:1px solid white;
+    margin:15px;
+    width:70px;
+    height:70px;
+}
+.playerContainer #player_title{
+    font-size:20px;
+    font-weight:bold;
+    color:white;
+    position:absolute;
+    top:17px;
+    left:100px;
+}
+.playerContainer #player_content{
+    width:240px;
+    font-size:13.8px;
+    background-color:red;
+    position:absolute;
+    top:50px;
+    left:100px;
+    color:white;
+}
 .play{
     position: fixed;
     bottom: 53px;

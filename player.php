@@ -32,7 +32,9 @@
   <source type="audio/ogg">
 </audio>
 <div class="playerContainer">
-<img src="billieEilish.jpg">
+<img class="player_image" src="billieEilish.jpg" >
+<p id="player_title">Bad Guy</p>
+<p id="player_content">Billie Eilish</p>
 <button class="play" id="pl" onclick="clickP(true)"><i style="font-size:18px; text-align:center" class="fa">&#xf04b;</i></button>
 <button class="pause" id="pa"  onclick="clickP(false)"><i style="font-size:18px; text-align:center" class="fa">&#xf04c;</i></button>
 <input class="seek" type="range" min="0" max="100" value="0"  name="progress" id="seek" />
