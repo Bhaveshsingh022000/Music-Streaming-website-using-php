@@ -10,17 +10,7 @@ $queryName;
 $queryTable;
 $fetchQuery;
 $fres;
-if(isset($_GET['artist'])){
-    $queryName = $_GET['artist'];
-    $queryTable = 'artist';
-    $fetchQuery= "select * from "."`".$queryTable."`"."where p_name = "."'".$queryName."'";
-    if($fetchResult = $conn->query($fetchQuery)){
-        $fres = $fetchResult->fetch_assoc();
-    }
-    else{
-        echo "falide";
-    }
-}
+
 
 
 
@@ -39,15 +29,15 @@ if(isset($_GET['artist'])){
     <title>Document</title>
 </head>
 <body>
-    <!-- <div class="mainContainer" style="background: linear-gradient(to top left, #000000 10%, <?php echo $fres['color']; ?> 100%);">
+    <!-- <div class="mainContainer">
         <div class="jumbotron jumbotron-fluid" style="background: linear-gradient(to bottom, transparent 65%, rgba(0,0,0,0.8)), 
-        url(<?php echo $fres['Artist_cover_image']; ?>); height:380px;
+        url('1136124.jpg'); height:380px;
     object-fit:cover;
     background-size: cover;
     background-position:0px;" >
             <div class="container-fluid">
-                <h1><?php echo $fres['Artist_name'];?></h1>
-                <button style="background-color: <?php echo $fres['color'];?>">PLAY</button>
+                <h1>Maroon 5</h1>
+                <button>PLAY</button>
             </div>
         </div>
         <table>
@@ -56,7 +46,7 @@ if(isset($_GET['artist'])){
             while($i<4){
             echo "<tr>";
                 echo "<td id='td1'><i class='fa'>&#xf04b;</i></td>";
-                echo "<td id='td2'><img src= ".$fres['Artist_image']."></td>";
+                echo "<td id='td2'><img src= ''></td>";
                 echo "<td id='td3'><h4>Yummy</h4><p>Justin Bieber</p></td>";
                 echo "<td id='td4'>03:40</td>";
             echo "</tr>";

@@ -25,7 +25,7 @@ $conn = new mysqli($serverName,$username,$password,$dbName);
     }
 </script>
 <body>
-    <div class="mainContainer">
+    <div class="mainContainer" style="background: linear-gradient(to bottom, #000000 -10%, #a76ca0 100%);">
         <ul id="navbar" class="nav justify-content-center">
         <li class="nav-item">
         <a class="nav-link" href="home.php">HOME</a>
@@ -97,24 +97,26 @@ $conn = new mysqli($serverName,$username,$password,$dbName);
             </div>
 
 
-            <div class='row'>
+            <!-- <div class='row'>
                 
                 <form action='play.php' method='get'>
                 <div class='col-lg-2' >
                 <div class='card'>
-                <img class='card-img-top' src="artworks-000159763176-pp8did-t500x500.jpg" alt='Card image'>
+                <img class='card-img-top' src="thumb-350-308742.jpg" alt='Card image'>
                 <div class='card-body'>
-                <h5 class='card-title'>Zayn Malik</h5>
+                <h5 class='card-title'>Maroon 5</h5>
                 <input style='display:none' type=text name='artist' value=$temp>
                 </div>
                 </div>
                 </div>
                 </form>
-               </div>
+               </div> -->
 
         
             <?php
-                $queryArtist = 'select collection_title.collection_name, artist.p_name, artist.Artist_name, artist.Artist_image from collection_title inner join collection on collection.collection_title_id = collection_title.collection_title_id inner join artist on collection.artist_id = artist.Artist_id';
+                $queryArtist = 'select collection_title.collection_name, artist.p_name, artist.Artist_name, artist.Artist_image from 
+                collection_title inner join collection on collection.collection_title_id = collection_title.collection_title_id 
+                inner join artist on collection.artist_id = artist.Artist_id where collection_title.collection_title_id = 3';
                 $resultArtist = $conn->query($queryArtist);
                 $artist = array();
                 while($f1 = $resultArtist->fetch_assoc()){$artist [] = $f1;}

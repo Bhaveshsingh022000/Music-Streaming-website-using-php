@@ -39,7 +39,9 @@ $conn = new mysqli($serverName,$username,$password,$dbName);
         </ul>
         <div class="container-fluid">
             <?php
-                $queryArtist = 'select collection_title.collection_name, artist.p_name, artist.Artist_name, artist.Artist_image from collection_title inner join collection on collection.collection_title_id = collection_title.collection_title_id inner join artist on collection.artist_id = artist.Artist_id';
+                $queryArtist = 'select collection_title.collection_name, artist.p_name, artist.Artist_name, artist.Artist_image from 
+                collection_title inner join collection on collection.collection_title_id = collection_title.collection_title_id 
+                inner join artist on collection.artist_id = artist.Artist_id WHERE collection_title.collection_title_id = 1';
                 $resultArtist = $conn->query($queryArtist);
                 $artist = array();
                 while($f1 = $resultArtist->fetch_assoc()){$artist [] = $f1;}
@@ -65,7 +67,9 @@ $conn = new mysqli($serverName,$username,$password,$dbName);
             
 
             <?php
-                $queryMood = 'select collection_title.collection_name, playlist.p_name, playlist.playlist_name, playlist.playlist_image from collection_title inner join collection on collection.collection_title_id = collection_title.collection_title_id inner join playlist on collection.playlist_id = playlist.playlist_id';
+                $queryMood = 'select collection_title.collection_name, playlist.p_name, playlist.playlist_name, playlist.playlist_image from 
+                collection_title inner join collection on collection.collection_title_id = collection_title.collection_title_id 
+                inner join playlist on collection.playlist_id = playlist.playlist_id where collection_title.collection_title_id = 2';
                 $resultMood = $conn->query($queryMood);
                 $mood = array();
                 while($f2 = $resultMood->fetch_assoc()){$mood [] = $f2;}
