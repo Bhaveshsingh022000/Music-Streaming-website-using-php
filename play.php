@@ -28,6 +28,11 @@ $fres;
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Spicy+Rice&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
+<script>
+function pla(x){
+document.getElementById('pl').click();
+}
+</script>
 <body>
     <!-- <div class="mainContainer">
         <div class="jumbotron jumbotron-fluid" style="background: linear-gradient(to bottom, transparent 65%, rgba(0,0,0,0.8)), 
@@ -77,15 +82,20 @@ if(isset($_GET['artist'])){
             echo "</div>";
         echo "</div>";
         echo "<table>";
-            $i=0;
-            while($i<4){
+        $ar_id = $fres['Artist_id'];
+        $songQuery = "select * from songs where artist_id = $ar_id";
+        $songsResult = $conn->query($songQuery);
+        
+            
+            while($sres = $songsResult->fetch_assoc()){
             echo "<tr>";
-                echo "<td id='td1'><i class='fa'>&#xf04b;</i></td>";
+            $sadd = $sres['song_address'];
+                echo "<td id='td1'><i id='splay' class='fa' onclick=pla('./Assets/webPlayerAssets/songs/Adele - Hello.mp3')>&#xf04b;</i></td>";
                 echo "<td id='td2'><img src= ".$fres['Artist_image']."></td>";
-                echo "<td id='td3'><h4>Yummy</h4><p>Justin Bieber</p></td>";
+                echo "<td id='td3'><h4>".$sres['song_name']."</h4><p>".$fres['Artist_name']."</p></td>";
                 echo "<td id='td4'>03:40</td>";
             echo "</tr>";
-            $i = $i+1;
+            
             }
             
         echo "</table>";
