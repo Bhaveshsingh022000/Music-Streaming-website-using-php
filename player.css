@@ -10,7 +10,7 @@ body{
 }
 .playerContainer img{
     border-radius:10px;
-    border:1px solid white;
+    object-fit:cover;
     margin:15px;
     width:70px;
     height:70px;
@@ -26,7 +26,6 @@ body{
 .playerContainer #player_content{
     width:240px;
     font-size:13.8px;
-    background-color:red;
     position:absolute;
     top:50px;
     left:100px;
