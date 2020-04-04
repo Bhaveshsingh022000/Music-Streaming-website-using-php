@@ -10,6 +10,9 @@ body{
 #navbar{
     margin-bottom: 10px;
 }
+#navbar .active{
+    border-bottom:2px solid #54ff88;
+}
 #navbar a{
     margin-top: 10px;
     color: aliceblue;

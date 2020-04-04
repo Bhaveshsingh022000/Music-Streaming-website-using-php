@@ -27,7 +27,7 @@ $conn = new mysqli($serverName,$username,$password,$dbName);
 <body>
     <div class="mainContainer">
         <ul id="navbar" class="nav justify-content-center">
-        <li class="nav-item">
+        <li class="nav-item active">
         <a class="nav-link" href="home.php">HOME</a>
         </li>
         <li class="nav-item">
@@ -100,7 +100,15 @@ $conn = new mysqli($serverName,$username,$password,$dbName);
 
             $singResult = $conn->query($querySing);
             $sing = array();
-            while($sr = $singResult->fetch_assoc()){$sing []=$sr;}
+            $sindex = 0;
+            while($sr = $singResult->fetch_assoc()){
+                $sing []=$sr;
+                $songsArray [] = $sr['song_address'];
+                $songsNameArray [] = $sr['song_name'];
+                $songsImageArray [] = $sr['song_image'];
+                $songsArtistName [] = $sr['Artist_name'];
+                
+            }
             echo "<h2>".$sing[0]['collection_name']."</h2>";
             echo "<div class='row'>";
                 foreach($sing as $s){
@@ -108,13 +116,14 @@ $conn = new mysqli($serverName,$username,$password,$dbName);
                     echo "<div class='card' id='sing'>";
                         echo "<img class='card-img-top' src=".$s['song_image']." alt='Card image'>";
                         echo "<div class='card-img-overlay'>";
-                            echo "<button><i class='fa'>&#xf04b;</i></button>";
+                            echo "<button class='splay' onclick= passIndex($sindex) ><i class='fa' ".">&#xf04b;</i>";
                         echo "</div>";
                         echo "<div class='card-body'>";
                             echo "<h6>".$s['song_name']."</h6>";
                         echo "</div>";
                     echo "</div>";
                 echo "</div>";
+                $sindex = $sindex+1;
                 }
             echo "</div>";
         ?>
@@ -125,4 +134,71 @@ $conn = new mysqli($serverName,$username,$password,$dbName);
    
 
 </body>
+<script>
+    function autoNext() {
+  setInterval(function(){ 
+      var u = document.getElementById('player');
+      if(u.currentTime == u.duration){
+          forw();
+      } 
+    }, 3000);
+}
+var prevIndex = 0;
+function stateManage(){
+
+}
+var currentIndex;
+function passIndex(x){
+    currentIndex = x;
+    var a = <?php echo json_encode($songsArray); ?>;
+    var b = <?php echo json_encode($songsImageArray); ?>;
+    var c = <?php echo json_encode($songsNameArray); ?>;
+    var d = <?php echo json_encode($songsArtistName); ?>;
+    console.log(d);
+    pla(x,d[x],b[x],c[x]);
+}
+
+   
+   function pla(x,y,z,w){
+    autoNext();
+        currentIndex = x;
+        var passedArray =  <?php echo json_encode($songsArray); ?>;
+        currentContent = <?php echo json_encode($songsNameArray); ?>;
+        // console.log(currentContent);
+        var g = document.getElementById('player');
+        g.setAttribute('src',passedArray[x]);
+        document.getElementById('pl').click();
+        document.getElementById('player_title').innerHTML = w;
+        document.getElementById('player_content').innerHTML = y;
+        document.getElementById('player_image').src = z;
+        document.getElementById('player_image').style.display = "block";
+        document.getElementsByClassName('splay')[x].style.display = "none";
+        document.getElementsByClassName('spause')[x].style.display = "block";
+        
+       
+   }
+   
+   function pau(){
+       document.getElementById('pa').click();
+       document.getElementById('splay').style.display = "block";
+       document.getElementById('spause').style.display = "none";
+   }
+   function forw(){
+       var temp = <?php echo json_encode($sindex)?>;
+       if(currentIndex==temp-1){
+           passIndex(0);
+       }
+       else{
+        passIndex(currentIndex+1);
+       }
+   }
+   function back(){
+       if(currentIndex==0){
+           passIndex(0);
+       }
+       else{
+           passIndex(currentIndex-1);
+       }
+   }
+   </script>
 </html>

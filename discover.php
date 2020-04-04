@@ -16,7 +16,7 @@ $conn = new mysqli($serverName,$username,$password,$dbName);
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-    <title>Home</title>
+    <title>Discover</title>
 </head>
 <script>
     function fun(x){
@@ -30,7 +30,7 @@ $conn = new mysqli($serverName,$username,$password,$dbName);
         <li class="nav-item">
         <a class="nav-link" href="home.php">HOME</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item active">
         <a class="nav-link" href="discover.php">DISCOVER</a>
         </li>
         <li class="nav-item">

@@ -33,7 +33,7 @@ $conn = new mysqli($serverName,$username,$password,$dbName);
         <li class="nav-item">
         <a class="nav-link" href="discover.php">DISCOVER</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item active">
         <a class="nav-link" href="trending.php">TRENDING</a>
         </li>
         </ul>
