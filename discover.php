@@ -31,10 +31,10 @@ $conn = new mysqli($serverName,$username,$password,$dbName);
         <a class="nav-link" href="home.php">HOME</a>
         </li>
         <li class="nav-item">
-        <a class="nav-link" href="#">DISCOVER</a>
+        <a class="nav-link" href="discover.php">DISCOVER</a>
         </li>
         <li class="nav-item">
-        <a class="nav-link" href="#">TRENDING</a>
+        <a class="nav-link" href="trending.php">TRENDING</a>
         </li>
         </ul>
         <div class="container-fluid">

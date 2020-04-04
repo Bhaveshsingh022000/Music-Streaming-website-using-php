@@ -25,7 +25,7 @@ $conn = new mysqli($serverName,$username,$password,$dbName);
     }
 </script>
 <body>
-    <div class="mainContainer">
+    <div class="mainContainer" style="background: linear-gradient(to bottom, #000000 -10%, #f11767 100%);">
         <ul id="navbar" class="nav justify-content-center">
         <li class="nav-item">
         <a class="nav-link" href="home.php">HOME</a>
@@ -41,7 +41,7 @@ $conn = new mysqli($serverName,$username,$password,$dbName);
             <?php
                 $queryArtist = 'select collection_title.collection_name, artist.p_name, artist.Artist_name, artist.Artist_image from 
                 collection_title inner join collection on collection.collection_title_id = collection_title.collection_title_id 
-                inner join artist on collection.artist_id = artist.Artist_id WHERE collection_title.collection_title_id = 1';
+                inner join artist on collection.artist_id = artist.Artist_id WHERE collection_title.collection_title_id = 4';
                 $resultArtist = $conn->query($queryArtist);
                 $artist = array();
                 while($f1 = $resultArtist->fetch_assoc()){$artist [] = $f1;}
@@ -91,38 +91,64 @@ $conn = new mysqli($serverName,$username,$password,$dbName);
                 }
                 echo "</div>";
             ?>
-        <?php 
-            $querySing = 'select collection_title.collection_name, songs.song_name, songs.song_image, songs.song_address, artist.Artist_name 
-            from collection_title inner join 
-            collection on collection.collection_title_id = collection_title.collection_title_id 
-            INNER JOIN songs on collection.song_id = songs.song_id 
-            inner join artist on collection.artist_id = artist.Artist_id';
 
-            $singResult = $conn->query($querySing);
-            $sing = array();
-            while($sr = $singResult->fetch_assoc()){$sing []=$sr;}
-            echo "<h2>".$sing[0]['collection_name']."</h2>";
-            echo "<div class='row'>";
-                foreach($sing as $s){
-                echo "<div class='col-lg-2'>";
-                    echo "<div class='card' id='sing'>";
-                        echo "<img class='card-img-top' src=".$s['song_image']." alt='Card image'>";
-                        echo "<div class='card-img-overlay'>";
-                            echo "<button><i class='fa'>&#xf04b;</i></button>";
-                        echo "</div>";
-                        echo "<div class='card-body'>";
-                            echo "<h6>".$s['song_name']."</h6>";
-                        echo "</div>";
-                    echo "</div>";
-                echo "</div>";
-                }
-            echo "</div>";
-        ?>
-                
-        </div>
+            <h2>Sing Along</h2>
+            <div class="row">
+                <div class='col-lg-2'>
+                    <div class='card' id="sing">
+                        <img class='card-img-top' src="220px-Benny_Blanco,_Halsey_and_Khalid_Eastside.png" alt='Card image'>
+                        <div class="card-img-overlay">
+                            <button><i class="fa">&#xf04b;</i></button>
+                        </div>
+                        <div class="card-body">
+                            <h6>Eastside</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class='col-lg-2'>
+                    <div class='card' id="sing">
+                        <img class='card-img-top' src="images.jpg" alt='Card image'>
+                        <div class="card-body">
+                            <h6>The night we met</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class='col-lg-2'>
+                    <div class='card' id="sing">
+                        <img class='card-img-top' src="faultinourstars-soundtrack.jpg" alt='Card image'>
+                        <div class="card-body">
+                            <h6>All of the stars</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class='col-lg-2'>
+                    <div class='card' id="sing">
+                        <img class='card-img-top' src="1_WKZVewH7xZQiy9jNKzpkuw.jpeg" alt='Card image'>
+                        <div class="card-body">
+                            <h6>Yummy</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class='col-lg-2'>
+                    <div class='card' id="sing">
+                        <img class='card-img-top' src="x1080.jpg" alt='Card image'>
+                        <div class="card-body">
+                            <h6>Lovely</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class='col-lg-2'>
+                    <div class='card' id="sing">
+                        <img class='card-img-top' src="MV5BZjE4ODllODctOGJkNy00N2MzLWJlYzYtNThlYmNhZjFiY2I2XkEyXkFqcGdeQXVyOTYxMzA0Mzk@._V1_.jpg" alt='Card image'>
+                        <div class="card-body">
+                            <h6>Without Me</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
             
+        </div>
     </div>
-   
 
 </body>
 </html>

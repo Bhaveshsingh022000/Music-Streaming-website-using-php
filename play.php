@@ -32,12 +32,12 @@ $fres;
 <body>
     <!-- <div class="mainContainer">
         <div class="jumbotron jumbotron-fluid" style="background: linear-gradient(to bottom, transparent 65%, rgba(0,0,0,0.8)), 
-        url('1136124.jpg'); height:380px;
+        url('225500.jpg'); height:380px;
     object-fit:cover;
     background-size: cover;
     background-position:0px;" >
             <div class="container-fluid">
-                <h1>Maroon 5</h1>
+                <h1>Eminem</h1>
                 <button>PLAY</button>
             </div>
         </div>
@@ -47,15 +47,15 @@ $fres;
             while($i<4){
             echo "<tr>";
                 echo "<td id='td1'><i class='fa'>&#xf04b;</i></td>";
-                echo "<td id='td2'><img src= ''></td>";
+                echo "<td id='td2'><img src= 'Eminem-2.jpeg'></td>";
                 echo "<td id='td3'><h4>Yummy</h4><p>Justin Bieber</p></td>";
                 echo "<td id='td4'>03:40</td>";
             echo "</tr>";
             $i = $i+1;
             }
-            ?>
+            ?> -->
         </table>
-    </div> -->
+    </div>
 
 
 <?php
@@ -74,7 +74,7 @@ if(isset($_GET['artist'])){
         echo "<div class='jumbotron jumbotron-fluid' style="."'"."background: linear-gradient(to bottom, transparent 65%, rgba(0,0,0,0.8)), url(" .$fres['Artist_cover_image']."); height:380px; object-fit:cover; background-size: cover; background-position:0px; '>";
             echo "<div class='container-fluid'>";
                 echo "<h1>".$fres['Artist_name']."</h1>";
-                echo "<button style='background-color:".$fres['color']."'>PLAY</button>";
+                echo "<button onclick='forw()' style='background-color:".$fres['color']."'>PLAY</button>";
             echo "</div>";
         echo "</div>";
         echo "<table>";
@@ -91,7 +91,7 @@ if(isset($_GET['artist'])){
             $sartist = $fres['Artist_name'];
             $simage = $fres['Artist_image'];
             
-                echo "<td id='td1'><i id='splay' class='fa' onclick='"."pla(`$sindex`,`$sartist`,`$simage`,`$sname`)'".">&#xf04b;</i><i id='spause' onclick='pau()' style='display:none' class='fa'>&#xf04c;</i></td>";
+                echo "<td id='td1'><i  class='fa splay' onclick='"."pla(`$sindex`,`$sartist`,`$simage`,`$sname`)'".">&#xf04b;</i><i  onclick='pau()' style='display:none' class='fa spause'>&#xf04c;</i></td>";
                 echo "<td id='td2'><img src= ".$fres['Artist_image']."></td>";
                 echo "<td id='td3'><h4>".$sres['song_name']."</h4><p>".$fres['Artist_name']."</p></td>";
                 echo "<td id='td4'>03:40</td>";
@@ -142,11 +142,26 @@ if(isset($_GET['artist'])){
         }
 ?>
 <script>
+    function autoNext() {
+  setInterval(function(){ 
+      var u = document.getElementById('player');
+      if(u.currentTime == u.duration){
+          forw();
+      } 
+    }, 3000);
+}
+var prevIndex = 0;
+function stateManage(){
+
+}
    var currentIndex = 0;
    var currentImage=<?php echo json_encode($simage); ?>;
    var currentTitle=<?php echo json_encode($sartist); ?>;
    var currentContent;
+   
    function pla(x,y,z,w){
+      
+       
         currentIndex = x;
         var passedArray =  <?php echo json_encode($songsArray); ?>;
         
@@ -159,16 +174,21 @@ if(isset($_GET['artist'])){
         document.getElementById('player_content').innerHTML = y;
         document.getElementById('player_image').src = z;
         document.getElementById('player_image').style.display = "block";
-        document.getElementById('splay').style.display = "none";
-        document.getElementById('spause').style.display = "block";
+        document.getElementsByClassName('splay')[x].style.display = "none";
+        document.getElementsByClassName('spause')[x].style.display = "block";
+        autoNext();
+       
    }
+   
    function pau(){
        document.getElementById('pa').click();
        document.getElementById('splay').style.display = "block";
        document.getElementById('spause').style.display = "none";
    }
    function forw(){
-       if(currentIndex==7){
+       var totalIndex = <?php echo json_encode($sindex); ?>;
+       console.log('total - '+totalIndex);
+       if(currentIndex==totalIndex-1){
            console.log('inside if');
         var temp;
        currentIndex = 0;
