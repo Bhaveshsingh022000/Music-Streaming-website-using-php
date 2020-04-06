@@ -96,7 +96,7 @@ $conn = new mysqli($serverName,$username,$password,$dbName);
             from collection_title inner join 
             collection on collection.collection_title_id = collection_title.collection_title_id 
             INNER JOIN songs on collection.song_id = songs.song_id 
-            inner join artist on collection.artist_id = artist.Artist_id';
+            inner join artist on collection.artist_id = artist.Artist_id WHERE collection_title.collection_title_id=5';
 
             $singResult = $conn->query($querySing);
             $sing = array();

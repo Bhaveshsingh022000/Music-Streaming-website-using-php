@@ -35,6 +35,7 @@ if(isset($_POST['signUp'])){
 ?>
 <!-- login -->
 <?php
+$navBar = FALSE;
 if(isset($_POST['logIn'])){
   $logEmail = $_POST['loginEmail'];
   $logPass = $_POST['loginPass'];
@@ -42,7 +43,7 @@ if(isset($_POST['logIn'])){
   $resultq=$conn->query($selectQuery);
   $show = $resultq->fetch_assoc();
   if($show['email']==$logEmail && $show['password']==$logPass){
-    echo $show['name'];
+    $navBar = true;
   }
   else{
     echo"nai";
@@ -86,23 +87,41 @@ if(isset($_POST['logIn'])){
 </head>
 <body>
   <!-- Nav Bar -->
-  <ul id="navBar" class="nav justify-content-end">
-    <li class="nav-item">
-      <a href="#"><img src="830048.jpg" width="40px" height="40px" class="rounded-circle"></a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link active" href="#">Home</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="player.php">Web player</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" onclick="showSignUp(true)">Sign up </a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" onclick="showLogIn(true)">Log in</a>
-    </li>
-  </ul>
+  <?php
+  if($navBar == false){
+  echo "<ul id='navBar' class='nav justify-content-end'>";
+    echo "<li class='nav-item'>";
+      echo "<a class='nav-link active' href='#'>Home</a>";
+    echo "</li>";
+    echo "<li class='nav-item'>";
+      echo "<a class='nav-link' href='player.php'>Web player</a>";
+    echo "</li>";
+    echo "<li class='nav-item'>";
+      echo "<a class='nav-link' onclick='showSignUp(true)'>Sign up </a>";
+    echo "</li>";
+    echo "<li class='nav-item'>";
+      echo "<a class='nav-link' onclick='showLogIn(true)'>Log in</a>";
+    echo "</li>";
+  echo "</ul>";
+  }
+  elseif($navBar == true){
+    echo "<ul id='navBar' class='nav justify-content-end'>";
+    // echo "<li class='nav-item'>";
+    //   echo "<a href='#'><img src='830048.jpg' width='40px' height='40px' class='rounded-circle'></a>";
+    // echo "</li>";
+    echo "<li class='nav-item'>";
+      echo "<a class='nav-link active' href='#'>Home</a>";
+    echo "</li>";
+    echo "<li class='nav-item'>";
+      echo "<a class='nav-link' href='player.php'>Web player</a>";
+    echo "</li>";
+    echo "<li class='nav-item'>";
+      echo "<a class='nav-link' href='player.php'>Hi ".$show['name']."</a>";
+    echo "</li>";
+  echo "</ul>";
+  }
+  ?>
+  
 
   <!-- SignUp -->
   <div class="signUpModalContainer" id="sign">
