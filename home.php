@@ -6,9 +6,7 @@ $username = "root";
 $password = "";
 $dbName = "music";
 $conn = new mysqli($serverName,$username,$password,$dbName);
-if(isset($_get['webplayer'])){
-    echo "<script>alert('ok');<script>";
-}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

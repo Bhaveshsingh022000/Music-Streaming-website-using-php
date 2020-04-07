@@ -1,5 +1,11 @@
 <?php
 session_start();
+include('player.php');
+$serverName = "localhost";
+$username = "root";
+$password = "";
+$dbName = "music";
+$conn = new mysqli($serverName,$username,$password,$dbName);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,17 +43,42 @@ session_start();
                 </ul>
                 </div>
             </li>
-            <li class='nav-item search'>
-                <input type="search" placeholder="Search" name='search' />
-            </li>
-
         </ul>
+        <!-- <input class="search" type="search" placeholder="Search" name='search' /> -->
+<?php
+$userPlatlistQuery ="select songs.song_name,songs.song_address ,artist.Artist_name,artist.Artist_image FROM user_playlist INNER JOIN songs on songs.song_id = user_playlist.song_id 
+INNER JOIN artist on artist.Artist_id = songs.artist_id 
+WHERE user_playlist.user_id = ".$_SESSION['user_id'];
+                        $result = $conn->query($userPlatlistQuery);
 
-        <?php
+        echo "<table>";
+        $sindex = 0;
+        $songsArray=Array();
+        $simage = Array();
+        $sartist = Array();
+        $sname = Array();
+        $sindex = 0;
+            while($sres = $result->fetch_assoc()){
+                $songsArray []=$sres['song_address'];
+                $songsNameArray []=$sres['song_name'];
+            echo "<tr class='tableRow'>";
+            $sname[] = $sres['song_name'];
+            $sartist[] = $sres['Artist_name'];
+            $simage []= $sres['Artist_image'];
+            
+                echo "<td id='td1' class='songBtn'><i  class='fa splay' onclick='"."pla(`$sindex`,`$sartist[$sindex]`,`$simage[$sindex]`,`$sname[$sindex]`)'".">&#xf04b;</i><i  onclick='pau()' style='display:none' class='fa spause'>&#xf04c;</i></td>";
+                echo "<td id='td2'><img src= ".$sres['Artist_image']."></td>";
+                echo "<td id='td3' class='songName'><h4>".$sres['song_name']."</h4><p>".$sres['Artist_name']."</p></td>";
+                echo "<td id='td4' class='songTime'>03:40</td>";
+                
+                
+            echo "</tr>";
+            $sindex = $sindex+1;
+            }
+        echo "</table>";
 
-        ?>
 
-
+?>
     </div>
 </body>
 </html>
