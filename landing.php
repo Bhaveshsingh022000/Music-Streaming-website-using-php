@@ -135,14 +135,10 @@ if(isset($_GET['logout'])){
       <button type='button' class='btn dropdown-toggle' data-toggle='dropdown'>"
         .'Hi '.$displayName[0].
       "</button>
-      <div class='dropdown-menu' style = 'width:-100px;'>
-        <form method='get' action='home.php'>
-        <button type='submit' name=".$show['id'].">My Playlist</button><br>
-        </form>
-        <form action='#'>
-        <button type='submit' name='logout'>Log out</button>
-        </form>
-      </div>
+      <ul class='dropdown-menu'>
+                <li><a href='userplaylist.php' style='color:black; font-size:13px; padding-left:10px;'>My Playlist</a></li>
+                <li><a href='landing.php' style='color:black; font-size:13px; padding-left:10px;'>Log out</a></li>
+                </ul>
     </div>";
     echo "</li>";
   echo "</ul>";

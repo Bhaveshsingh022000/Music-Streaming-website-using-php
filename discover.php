@@ -78,7 +78,8 @@ $conn = new mysqli($serverName,$username,$password,$dbName);
                     echo "<div class='card' id='sing'>";
                         echo "<img class='card-img-top' src=".$s['song_image']." alt='Card image'>";
                         echo "<div class='card-img-overlay'>";
-                            echo "<button class='splay' onclick= passIndex($sindex) ><i class='fa' ".">&#xf04b;</i>";
+                            echo "<button class='splay' onclick= passIndex($sindex) ><i class='fa' ".">&#xf04b;</i>
+                            <button class='spause' style='display:none'><i  onclick='pau()'  class='fa'>&#xf04c;</i>";
                         echo "</div>";
                         echo "<div class='card-body'>";
                             echo "<h6>".$s['song_name']."</h6>";
@@ -135,29 +136,43 @@ $conn = new mysqli($serverName,$username,$password,$dbName);
             
             
 
-            <?php
-                $queryMood = 'select collection_title.collection_name, playlist.p_name, playlist.playlist_name, playlist.playlist_image from collection_title inner join collection on collection.collection_title_id = collection_title.collection_title_id inner join playlist on collection.playlist_id = playlist.playlist_id';
-                $resultMood = $conn->query($queryMood);
-                $mood = array();
-                while($f2 = $resultMood->fetch_assoc()){$mood [] = $f2;}
-                echo "<h2>".$mood[0]['collection_name']."</h2>";
-                echo "<div class='row'>";
-                foreach($mood as $m){
-                    $temp = $m['p_name'];
-                echo "<form action='play.php' method='get' id=$temp>";
+            <?php 
+            $querySing2 = 'select collection_title.collection_name, songs.song_name, songs.song_image, songs.song_address, artist.Artist_name 
+            from collection_title inner join 
+            collection on collection.collection_title_id = collection_title.collection_title_id 
+            INNER JOIN songs on collection.song_id = songs.song_id 
+            inner join artist on collection.artist_id = artist.Artist_id WHERE collection_title.collection_title_id=7';
+
+            $singResult2 = $conn->query($querySing2);
+            $sing2 = array();
+            $sindex2 = 0;
+            while($sr2 = $singResult2->fetch_assoc()){
+                $sing2 []=$sr2;
+                $songsArray2 [] = $sr2['song_address'];
+                $songsNameArray2 [] = $sr2['song_name'];
+                $songsImageArray2 [] = $sr2['song_image'];
+                $songsArtistName2 [] = $sr2['Artist_name'];
+                
+            }
+            echo "<h2>".$sing2[0]['collection_name']."</h2>";
+            echo "<div class='row'>";
+                foreach($sing2 as $s2){
                 echo "<div class='col-lg-2'>";
-                echo "<div class='card' id='mood' onclick=fun("."'".$temp."'".")>";
-                echo "<img class='card-img-top' src=".$m['playlist_image']." alt='Card image'>";
-                echo "<div class='card-body'>";
-                echo "<h6 class='card-title'>".$m['playlist_name']."</h6>";
-                echo "<input style='display:none' type=text name='mood' value=$temp>";
+                    echo "<div class='card' id='sing'>";
+                        echo "<img class='card-img-top' src=".$s2['song_image']." alt='Card image'>";
+                        echo "<div class='card-img-overlay'>";
+                            echo "<button class='splay2' onclick= passIndex2($sindex2) ><i class='fa' ".">&#xf04b;</i>
+                            <button class='spause2' style='display:none'><i  onclick='pau2()'  class='fa'>&#xf04c;</i>";
+                        echo "</div>";
+                        echo "<div class='card-body'>";
+                            echo "<h6>".$s2['song_name']."</h6>";
+                        echo "</div>";
+                    echo "</div>";
                 echo "</div>";
-                echo "</div>";
-                echo "</div>";
-                echo "</form>";
+                $sindex2 = $sindex2+1;
                 }
-                echo "</div>";
-            ?>
+            echo "</div>";
+        ?>
 
             
             
@@ -180,6 +195,8 @@ function stateManage(){
 }
 var currentIndex;
 function passIndex(x){
+    $('.splay').css('display','block');
+    $('.spause').css('display','none');
     currentIndex = x;
     var a = <?php echo json_encode($songsArray); ?>;
     var b = <?php echo json_encode($songsImageArray); ?>;
@@ -211,8 +228,8 @@ function passIndex(x){
    
    function pau(){
        document.getElementById('pa').click();
-       document.getElementById('splay').style.display = "block";
-       document.getElementById('spause').style.display = "none";
+       document.getElementsByClassName('splay')[currentIndex].style.display = "block";
+       document.getElementsByClassName('spause')[currentIndex].style.display = "none";
    }
    function forw(){
        var temp = <?php echo json_encode($sindex)?>;
@@ -229,6 +246,75 @@ function passIndex(x){
        }
        else{
            passIndex(currentIndex-1);
+       }
+   }
+   </script>
+
+
+   <script>
+    function autoNext2() {
+  setInterval(function(){ 
+      var u = document.getElementById('player');
+      if(u.currentTime == u.duration){
+          forw2();
+      } 
+    }, 3000);
+}
+var prevIndex2 = 0;
+var currentIndex2=0;
+function passIndex2(x){
+    $('.splay2').css('display','block');
+    $('.spause2').css('display','none');
+    currentIndex2 = x;
+    var a = <?php echo json_encode($songsArray2); ?>;
+    var b = <?php echo json_encode($songsImageArray2); ?>;
+    var c = <?php echo json_encode($songsNameArray2); ?>;
+    var d = <?php echo json_encode($songsArtistName2); ?>;
+    console.log(x);
+    pla2(x,d[x],b[x],c[x]);
+}
+
+   
+   function pla2(x,y,z,w){
+    autoNext2();
+        currentIndex2 = x;
+        var passedArray2 =  <?php echo json_encode($songsArray2); ?>;
+        currentContent2 = <?php echo json_encode($songsNameArray2); ?>;
+        // console.log(currentContent);
+        var g = document.getElementById('player');
+        g.setAttribute('src',passedArray2[x]);
+        document.getElementById('pl').click();
+        document.getElementById('player_title').innerHTML = w;
+        document.getElementById('player_content').innerHTML = y;
+        document.getElementById('player_image').src = z;
+        document.getElementById('player_image').style.display = "block";
+        document.getElementsByClassName('splay2')[x].style.display = "none";
+        document.getElementsByClassName('spause2')[x].style.display = "block";
+        
+       
+   }
+   
+   function pau2(){
+       console.log(currentIndex2);
+       document.getElementById('pa').click();
+       document.getElementsByClassName('splay2')[currentIndex2].style.display = "block";
+       document.getElementsByClassName('spause2')[currentIndex2].style.display = "none";
+   }
+   function forw(){
+       var temp2 = <?php echo json_encode($sindex2)?>;
+       if(currentIndex2==temp2-1){
+           passIndex2(0);
+       }
+       else{
+        passIndex2(currentIndex2+1);
+       }
+   }
+   function back(){
+       if(currentIndex2==0){
+           passIndex2(0);
+       }
+       else{
+           passIndex2(currentIndex2-1);
        }
    }
    </script>

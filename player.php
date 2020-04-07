@@ -54,7 +54,7 @@ var z = document.getElementById("volumeControl");
 x.addEventListener("timeupdate",function(){
     y.max=x.duration;
     y.value = (parseInt(x.currentTime))+0.01;
-    y.style.background = 'linear-gradient(to right, #82CFD0 0%, #4CAF50 ' + ((y.value)*100)/y.max + '%, #fff ' + ((y.value)*100)/y.max + '%, white 100%)';
+    y.style.background = 'linear-gradient(to right, #07ff76 0%, #4CAF50 ' + ((y.value)*100)/y.max + '%, #fff ' + ((y.value)*100)/y.max + '%, white 100%)';
     var currentMinute, CurrentSecond, totalMinutes, totalSeconds;
     currentMinute = Math.floor((x.currentTime / 60));
     totalMinutes = Math.floor((x.duration / 60));
