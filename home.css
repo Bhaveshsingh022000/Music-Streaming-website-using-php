@@ -80,6 +80,8 @@ h2{
     background-color:rgba(0,0,0,0);
     border:none;
     color:white;
+    margin-left:50px;
+    margin-right:50px;
     margin-top:40px;
 }
 [class*="card-img-overlay"] button i{
@@ -98,6 +100,12 @@ h2{
     height:80%;
     width:90%;
     margin-left:0px;
+}
+.spause{
+    margin-left:50px;
+}
+.splay{
+    margin-left: 50px;
 }
 
 form{

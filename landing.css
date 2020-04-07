@@ -20,10 +20,16 @@
 #navBar a:hover{
     color: rgb(42, 231, 159);
 }
-#navBar img{
-    position: absolute;
-    left: 10px;
+.dropdown button{
+    margin-top:4px;
+    border:none;
+    font-size: 15px;
+    font-weight:600;
+    border-radius:20px;
+    color:white;
+    background-color:#3b99d0;
 }
+
 #navBar [class*="active"]{
     color: aqua;
     border-radius: 3px;

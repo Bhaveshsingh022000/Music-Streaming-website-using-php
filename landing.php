@@ -39,17 +39,27 @@ $navBar = FALSE;
 if(isset($_POST['logIn'])){
   $logEmail = $_POST['loginEmail'];
   $logPass = $_POST['loginPass'];
-  $selectQuery = "select email, password, name from user where email='$logEmail' and password='$logPass'";
+  $selectQuery = "select email, id, password, name from user where email='$logEmail' and password='$logPass'";
   $resultq=$conn->query($selectQuery);
   $show = $resultq->fetch_assoc();
+  $displayName = '';
   if($show['email']==$logEmail && $show['password']==$logPass){
     $navBar = true;
+    $userId = $show['id'];
+    $displayName = $show['name'];
+    $displayName = (explode(" ",$displayName));
   }
   else{
     echo"nai";
   }
   
 }
+
+
+if(isset($_GET['logout'])){
+  header("Location: http://localhost:3005/music/landing.php");
+}
+
 ?>
 
 
@@ -82,6 +92,7 @@ if(isset($_POST['logIn'])){
     //     function t(){
     //       console.log(document.getElementById('signUpBtn').value);
     //     }
+        
         
     </script>
 </head>
@@ -116,7 +127,19 @@ if(isset($_POST['logIn'])){
       echo "<a class='nav-link' href='player.php'>Web player</a>";
     echo "</li>";
     echo "<li class='nav-item'>";
-      echo "<a class='nav-link' href='player.php'>Hi ".$show['name']."</a>";
+      echo "<div class='dropdown'>
+      <button type='button' class='btn dropdown-toggle' data-toggle='dropdown'>"
+        .'Hi '.$displayName[0].
+      "</button>
+      <div class='dropdown-menu' style = 'width:-100px;'>
+        <form method='get' action='home.php'>
+        <button type='submit' name=".$show['id'].">My Playlist</button><br>
+        </form>
+        <form action='#'>
+        <button type='submit' name='logout'>Log out</button>
+        </form>
+      </div>
+    </div>";
     echo "</li>";
   echo "</ul>";
   }
@@ -226,7 +249,9 @@ if(isset($_POST['logIn'])){
   <!-- Contents of website -->
   <div class="main-container">
     <h1>Looking For Music ?</h1>
-    <button type="button" class="launchBtn">Launch Web Player</button>
+    <form method='get'>
+      <button type="submit" name=<?php echo $show['id']; ?> class="launchBtn">Launch Web Player</button>
+    </form>
     
     <div class="container-fluid">
       <h2 style="color: white;">Newly Released</h2>
@@ -276,4 +301,5 @@ if(isset($_POST['logIn'])){
   </div>
     
 </body>
+
 </html>

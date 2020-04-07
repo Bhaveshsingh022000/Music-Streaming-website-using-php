@@ -5,6 +5,9 @@ $username = "root";
 $password = "";
 $dbName = "music";
 $conn = new mysqli($serverName,$username,$password,$dbName);
+if(isset($_get['webplayer'])){
+    echo "<script>alert('ok');<script>";
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,6 +38,9 @@ $conn = new mysqli($serverName,$username,$password,$dbName);
         </li>
         <li class="nav-item">
         <a class="nav-link" href="trending.php">TRENDING</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="trending.php">MY PLAYLIST</a>
         </li>
         </ul>
         <div class="container-fluid">
@@ -67,7 +73,7 @@ $conn = new mysqli($serverName,$username,$password,$dbName);
             
 
             <?php
-                $queryMood = 'select collection_title.collection_name, playlist.p_name, playlist.playlist_name, playlist.playlist_image from 
+                $queryMood = 'select collection_title.collection_name, playlist.p_name ,playlist.playlist_name, playlist.playlist_image from 
                 collection_title inner join collection on collection.collection_title_id = collection_title.collection_title_id 
                 inner join playlist on collection.playlist_id = playlist.playlist_id where collection_title.collection_title_id = 2';
                 $resultMood = $conn->query($queryMood);
@@ -116,7 +122,8 @@ $conn = new mysqli($serverName,$username,$password,$dbName);
                     echo "<div class='card' id='sing'>";
                         echo "<img class='card-img-top' src=".$s['song_image']." alt='Card image'>";
                         echo "<div class='card-img-overlay'>";
-                            echo "<button class='splay' onclick= passIndex($sindex) ><i class='fa' ".">&#xf04b;</i>";
+                            echo "<button class='splay' onclick= passIndex($sindex) ><i class='fa' ".">&#xf04b;</i> 
+                            <button class='spause' style='display:none'><i  onclick='pau()'  class='fa'>&#xf04c;</i>";
                         echo "</div>";
                         echo "<div class='card-body'>";
                             echo "<h6>".$s['song_name']."</h6>";
@@ -180,8 +187,8 @@ function passIndex(x){
    
    function pau(){
        document.getElementById('pa').click();
-       document.getElementById('splay').style.display = "block";
-       document.getElementById('spause').style.display = "none";
+       document.getElementsByClassName('splay')[currentIndex].style.display = "block";
+       document.getElementsByClassName('spause')[currentIndex].style.display = "none";
    }
    function forw(){
        var temp = <?php echo json_encode($sindex)?>;
