@@ -1,4 +1,5 @@
 <?php
+session_start();
 include('player.php');
 $serverName = "localhost";
 $username = "root";
@@ -26,16 +27,28 @@ $conn = new mysqli($serverName,$username,$password,$dbName);
 </script>
 <body>
     <div class="mainContainer" style="background: linear-gradient(to bottom, #000000 -10%, #a76ca0 100%);">
-        <ul id="navbar" class="nav justify-content-center">
-        <li class="nav-item">
-        <a class="nav-link" href="home.php">HOME</a>
-        </li>
-        <li class="nav-item active">
-        <a class="nav-link" href="discover.php">DISCOVER</a>
-        </li>
-        <li class="nav-item">
-        <a class="nav-link" href="trending.php">TRENDING</a>
-        </li>
+    <ul id="navbar" class="nav justify-content-center">
+            <li class="nav-item">
+            <a class="nav-link" href="home.php">HOME</a>
+            </li>
+            <li class="nav-item active">
+            <a class="nav-link" href="discover.php">DISCOVER</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="trending.php">TRENDING</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="userplaylist.php">MY PLAYLIST</a>
+            </li>
+            <li class='nav-item profile'>
+            <div class='dropdown'>
+      <button type='button' class='btn dropdown-toggle' data-toggle='dropdown'><?php echo $_SESSION['user_name'][0]; ?></button>
+      <ul class="dropdown-menu">
+    <li><a href="userplaylist.php" style='color:black; font-size:13px; padding-left:10px;'>My Playlist</a></li>
+    <li><a href="landing.php" style='color:black; font-size:13px; padding-left:10px;'>Log out</a></li>
+  </ul>
+    </div>
+            </li>
         </ul>
         <div class="container-fluid">
 

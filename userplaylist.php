@@ -29,15 +29,25 @@ session_start();
             <a class="nav-link" href="trending.php">MY PLAYLIST</a>
             </li>
             <li class='nav-item profile'>
-            <div class='dropdown'>
-      <button type='button' class='btn dropdown-toggle' data-toggle='dropdown'><?php echo $_SESSION['user_name'][0]; ?></button>
-      <ul class="dropdown-menu">
-    <li><a href="userplaylist.php" style='color:black; font-size:13px; padding-left:10px;'>My Playlist</a></li>
-    <li><a href="landing.php" style='color:black; font-size:13px; padding-left:10px;'>Log out</a></li>
-  </ul>
-    </div>
+                <div class='dropdown'>
+                <button type='button' class='btn dropdown-toggle' data-toggle='dropdown'><?php echo $_SESSION['user_name'][0]; ?></button>
+                <ul class="dropdown-menu">
+                <li><a href="userplaylist.php" style='color:black; font-size:13px; padding-left:10px;'>My Playlist</a></li>
+                <li><a href="landing.php" style='color:black; font-size:13px; padding-left:10px;'>Log out</a></li>
+                </ul>
+                </div>
             </li>
+            <li class='nav-item search'>
+                <input type="search" placeholder="Search" name='search' />
+            </li>
+
         </ul>
+
+        <?php
+
+        ?>
+
+
     </div>
 </body>
 </html>
