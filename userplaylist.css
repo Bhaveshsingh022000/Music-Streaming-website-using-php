@@ -1,10 +1,33 @@
 body{
     margin:0px;
-    background-color:green;
 }
 .mainContainer{
-    margin-top:-20px;
     width: 100%;
-    height: 200px;
-    background-color:red;
+    height: 666px;
+    background: linear-gradient(to bottom, #000000 -10%, #16794b 100%);
+}
+#navbar{
+    margin-bottom: 10px;
+}
+#navbar .active{
+    border-bottom:2px solid #54ff88;
+}
+#navbar a{
+    margin-top: 10px;
+    color: aliceblue;
+    font-size: 20px;
+    font-weight:bolder;
+    letter-spacing:2px;
+    border-bottom-color: #a30a2d;
+}
+.profile{
+    position:absolute;
+    left:0px;
+}
+.profile button{
+    color:white;
+    background-color:#22c153;
+    height:40px;
+    border-top-right-radius:30px;
+    border-bottom-right-radius:30px
 }
