@@ -39,7 +39,7 @@ $conn = new mysqli($serverName,$username,$password,$dbName);
             <a class="nav-link" href="trending.php">TRENDING</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="trending.php">MY PLAYLIST</a>
+            <a class="nav-link" href="userplaylist.php">MY PLAYLIST</a>
             </li>
             <li class='nav-item profile'>
             <div class='dropdown'>

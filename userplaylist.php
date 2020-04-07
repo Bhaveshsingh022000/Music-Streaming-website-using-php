@@ -80,5 +80,118 @@ WHERE user_playlist.user_id = ".$_SESSION['user_id'];
 
 ?>
     </div>
+
+    <script>
+
+  
+
+function addToPlaylist(x){
+    var http = new XMLHttpRequest();
+    http.onreadystatechange = function(){
+        if(this.readyState == 4 && this.status == 200){
+            $('.toast').toast('show');
+        }
+    };
+    http.open('get','updatePlaylist.php?q='+x,true);
+    http.send();
+}
+
+    function autoNext() {
+  setInterval(function(){ 
+      var u = document.getElementById('player');
+      if(u.currentTime == u.duration){
+          forw();
+      } 
+    }, 3000);
+}
+
+function playAll(){
+    document.getElementsByClassName('splay')[0].click();
+}
+
+var prevIndex = 0;
+   var currentIndex = 0;
+   var currentImage=<?php echo json_encode($simage); ?>;
+   var currentTitle=<?php echo json_encode($sartist); ?>;
+   var currentContent;
+   
+   function pla(x,y,z,w){
+      console.log(currentImage);
+       $('.songName').css('color','white');
+       $('.songBtn').css('color','white');
+       $('.songTime').css('color','white');
+       $('.tableRow').css('background-color','');
+       $('.splay').css('display','block');
+       $('.spause').css('display','none');
+        currentIndex = x;
+        var passedArray =  <?php echo json_encode($songsArray); ?>;
+        
+        currentContent = <?php echo json_encode($songsNameArray); ?>;
+        // console.log(currentContent);
+        var g = document.getElementById('player');
+        g.setAttribute('src',passedArray[x]);
+        document.getElementById('pl').click();
+        document.getElementById('player_title').innerHTML = w;
+        document.getElementById('player_content').innerHTML = y;
+        document.getElementById('player_image').src = z;
+        document.getElementsByClassName('songName')[x].style.color = '#41e23e';
+        document.getElementsByClassName('songTime')[x].style.color = '#41e23e';
+        document.getElementsByClassName('songBtn')[x].style.color = '#41e23e';
+        document.getElementsByClassName('tableRow')[x].style.backgroundColor = '#5a5656';
+        document.getElementById('player_image').style.display = "block";
+        document.getElementsByClassName('splay')[x].style.display = "none";
+        document.getElementsByClassName('spause')[x].style.display = "block";
+        autoNext();      
+       
+   }
+   
+   function pau(){
+       document.getElementById('pa').click();
+       document.getElementsByClassName('splay')[currentIndex].style.display = "block";
+       document.getElementsByClassName('spause')[currentIndex].style.display = "none";
+   }
+   function forw(){
+       var totalIndex = <?php echo json_encode($sindex); ?>;
+       console.log('total - '+totalIndex);
+       if(currentIndex==totalIndex-1){
+           console.log('inside if');
+        var temp;
+       currentIndex = 0;
+       temp = currentIndex;
+       console.log(currentContent[temp]);
+       console.log('image'+currentImage);
+       console.log('title '+currentTitle);
+       pla(currentIndex,currentContent[temp],currentImage[temp],currentTitle[temp]);
+       }
+       else{var temp;
+       currentIndex = parseInt(currentIndex)+1;
+       temp = currentIndex;
+       console.log(currentContent[temp]);
+       console.log('image'+currentImage);
+       console.log('title '+currentTitle);
+       pla(currentIndex,currentContent[temp],currentImage[temp],currentTitle[temp]);
+       }
+   }
+   function back(){
+       if(currentIndex==0){
+           console.log('inside if');
+        var temp;
+       currentIndex = 0;
+       temp = currentIndex;
+       console.log(currentContent[temp]);
+       console.log('image'+currentImage);
+       console.log('title '+currentTitle);
+       pla(currentIndex,currentContent[temp],currentImage[temp],currentTitle[temp]);
+       }
+       else{var temp;
+       currentIndex = parseInt(currentIndex)-1;
+       temp = currentIndex;
+       console.log(currentContent[temp]);
+       console.log('image'+currentImage);
+       console.log('title '+currentTitle);
+       pla(currentIndex,currentContent[temp],currentImage[temp],currentTitle[temp]);
+       }
+   }
+   </script>
 </body>
 </html>
