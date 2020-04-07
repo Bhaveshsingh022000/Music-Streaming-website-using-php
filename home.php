@@ -1,4 +1,5 @@
 <?php
+session_start();
 include('player.php');
 $serverName = "localhost";
 $username = "root";
@@ -30,18 +31,27 @@ if(isset($_get['webplayer'])){
 <body>
     <div class="mainContainer">
         <ul id="navbar" class="nav justify-content-center">
-        <li class="nav-item active">
-        <a class="nav-link" href="home.php">HOME</a>
-        </li>
-        <li class="nav-item">
-        <a class="nav-link" href="discover.php">DISCOVER</a>
-        </li>
-        <li class="nav-item">
-        <a class="nav-link" href="trending.php">TRENDING</a>
-        </li>
-        <li class="nav-item">
-        <a class="nav-link" href="trending.php">MY PLAYLIST</a>
-        </li>
+            <li class="nav-item active">
+            <a class="nav-link" href="home.php">HOME</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="discover.php">DISCOVER</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="trending.php">TRENDING</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="trending.php">MY PLAYLIST</a>
+            </li>
+            <li class='nav-item profile'>
+            <div class='dropdown'>
+      <button type='button' class='btn dropdown-toggle' data-toggle='dropdown'><?php echo $_SESSION['user_name'][0]; ?></button>
+      <ul class="dropdown-menu">
+    <li><a href="userplaylist.php" style='color:black; font-size:13px; padding-left:10px;'>My Playlist</a></li>
+    <li><a href="landing.php" style='color:black; font-size:13px; padding-left:10px;'>Log out</a></li>
+  </ul>
+    </div>
+            </li>
         </ul>
         <div class="container-fluid">
             <?php

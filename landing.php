@@ -1,4 +1,5 @@
 <?php
+session_start();
 $serverName = "localhost";
 $username = "root";
 $password = "";
@@ -48,6 +49,8 @@ if(isset($_POST['logIn'])){
     $userId = $show['id'];
     $displayName = $show['name'];
     $displayName = (explode(" ",$displayName));
+    $_SESSION["user_id"] = $show['id'];
+    $_SESSION["user_name"]= $displayName;
   }
   else{
     echo"nai";
@@ -116,6 +119,7 @@ if(isset($_GET['logout'])){
   echo "</ul>";
   }
   elseif($navBar == true){
+    
     echo "<ul id='navBar' class='nav justify-content-end'>";
     // echo "<li class='nav-item'>";
     //   echo "<a href='#'><img src='830048.jpg' width='40px' height='40px' class='rounded-circle'></a>";
@@ -249,8 +253,8 @@ if(isset($_GET['logout'])){
   <!-- Contents of website -->
   <div class="main-container">
     <h1>Looking For Music ?</h1>
-    <form method='get'>
-      <button type="submit" name=<?php echo $show['id']; ?> class="launchBtn">Launch Web Player</button>
+    <form method='get' action="home.php">
+      <button type="submit" name="webplayer" class="launchBtn">Launch Web Player</button>
     </form>
     
     <div class="container-fluid">

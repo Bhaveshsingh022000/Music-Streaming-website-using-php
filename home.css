@@ -111,3 +111,14 @@ h2{
 form{
     width:224.5px;
 }
+.profile{
+    position:absolute;
+    left:0px;
+}
+.profile button{
+    color:white;
+    background-color:#22c153;
+    height:40px;
+    border-top-right-radius:30px;
+    border-bottom-right-radius:30px
+}

@@ -1,4 +1,5 @@
 <?php
+session_start();
 include('player.php');
 $serverName = "localhost";
 $username = "root";
@@ -54,8 +55,8 @@ $fres;
             $i = $i+1;
             }
             ?> -->
-        </table>
-    </div>
+        <!-- </table>
+    </div> -->
 
 
 <?php
@@ -98,7 +99,7 @@ if(isset($_GET['artist'])){
                 echo "<td id='td2'><img src= ".$fres['Artist_image']."></td>";
                 echo "<td id='td3' class='songName'><h4>".$sres['song_name']."</h4><p>".$fres['Artist_name']."</p></td>";
                 echo "<td id='td4' class='songTime'>03:40</td>";
-                
+                echo "<td id='td5'><button type='submit' onclick='addToPlaylist(".$sres['song_id'].")'><i class='fa'>&#xf0fe;</i></button></td>";
             echo "</tr>";
             $sindex = $sindex+1;
             }
@@ -130,7 +131,7 @@ if(isset($_GET['artist'])){
         echo "</div>";
         echo "<table>";
             $sindex = 0;
-            $queryplaylist = "select playlist.playlist_name, songs.song_name, songs.song_address, artist.Artist_image, artist.Artist_name from playlist 
+            $queryplaylist = "select playlist.playlist_name, songs.song_id, songs.song_name, songs.song_address, artist.Artist_image, artist.Artist_name from playlist 
             inner join playlist_songs on playlist_songs.playlist_id = playlist.playlist_id INNER JOIN songs on playlist_songs.song_id = songs.song_id 
             inner JOIN artist on songs.artist_id = artist.Artist_id where playlist.p_name='".$queryName."'";
             $songsResult = $conn->query($queryplaylist);
@@ -151,7 +152,7 @@ if(isset($_GET['artist'])){
                 echo "<td id='td2'><img src= ".$sres['Artist_image']."></td>";
                 echo "<td id='td3' class='songName'><h4>".$sres['song_name']."</h4><p>".$sres['Artist_name']."</p></td>";
                 echo "<td id='td4' class='songTime'>03:40</td>";
-                echo "<td id='td5'><button type='submit' onclick='userPlaylist'><i class='fa'>&#xf0fe;</i></button></td>";
+                echo "<td id='td5'><button type='submit' onclick='addToPlaylist(".$sres['song_id'].")'><i class='fa'>&#xf0fe;</i></button></td>";
                 
             echo "</tr>";
             $sindex = $sindex+1;
@@ -160,8 +161,33 @@ if(isset($_GET['artist'])){
         echo "</table>";
     echo "</div>";
         }
+
+
+        echo "<div class='toast' data-autohide='true'>
+    <div class='toast-header'>
+      <strong class='mr-auto text-primary'>Song Added To Your Playlist</strong>
+      <button type='button' class='ml-2 mb-1 close' data-dismiss='toast'>&times;</button>
+    </div>
+  </div>";
+        
 ?>
+
+
 <script>
+
+  
+
+function addToPlaylist(x){
+    var http = new XMLHttpRequest();
+    http.onreadystatechange = function(){
+        if(this.readyState == 4 && this.status == 200){
+            $('.toast').toast('show');
+        }
+    };
+    http.open('get','updatePlaylist.php?q='+x,true);
+    http.send();
+}
+
     function autoNext() {
   setInterval(function(){ 
       var u = document.getElementById('player');
