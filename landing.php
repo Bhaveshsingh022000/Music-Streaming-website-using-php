@@ -269,7 +269,7 @@ if(isset($_GET['logout'])){
         echo "<div class='card-body'>";
         echo "<h4 class='card-title'>".$f2['grid_content_title']."</h4>";
         echo "<p class='card-text'>".$f2['grid_content']."</p>";
-        echo "<a href='http://localhost:3005/music/play.php?artist=selena'><button><i class='fa'>&#xf04b</i></button></a>";
+        echo "<a href='$f2[phplink]'><button><i class='fa'>&#xf04b</i></button></a>";
         echo "</div>";
         echo "</div>";
         echo "</div>";
@@ -291,7 +291,7 @@ if(isset($_GET['logout'])){
         echo "<div class='card-body'>";
         echo "<h4 class='card-title'>".$f2['grid_content_title']."</h4>";
         echo "<p class='card-text'>".$f2['grid_content']."</p>";
-        echo "<a href='#'><button><i class='fa'>&#xf04b</i></button></a>";
+        echo "<a href='$f2[phplink]'><button><i class='fa'>&#xf04b</i></button></a>";
         echo "</div>";
         echo "</div>";
         echo "</div>";
