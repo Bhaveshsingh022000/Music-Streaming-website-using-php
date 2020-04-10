@@ -212,6 +212,7 @@ if(isset($_GET['logout'])){
       <li data-target="#demo" data-slide-to="1"></li>
       <li data-target="#demo" data-slide-to="2"></li>
       <li data-target="#demo" data-slide-to="3"></li>
+      <li data-target="#demo" data-slide-to="4"></li>
     </ul>
     <div class="carousel-inner">
 
