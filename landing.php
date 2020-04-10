@@ -95,7 +95,9 @@ if(isset($_GET['logout'])){
     //     function t(){
     //       console.log(document.getElementById('signUpBtn').value);
     //     }
-        
+        function checklog(){
+          alert('You need to login first');
+        }
         
     </script>
 </head>
@@ -108,7 +110,7 @@ if(isset($_GET['logout'])){
       echo "<a class='nav-link active' href='#'>Home</a>";
     echo "</li>";
     echo "<li class='nav-item'>";
-      echo "<a class='nav-link' href='player.php'>Web player</a>";
+      echo "<a class='nav-link' onclick='checklog()'>Web player</a>";
     echo "</li>";
     echo "<li class='nav-item'>";
       echo "<a class='nav-link' onclick='showSignUp(true)'>Sign up </a>";
@@ -128,7 +130,7 @@ if(isset($_GET['logout'])){
       echo "<a class='nav-link active' href='#'>Home</a>";
     echo "</li>";
     echo "<li class='nav-item'>";
-      echo "<a class='nav-link' href='player.php'>Web player</a>";
+      echo "<a class='nav-link' href='home.php'>Web player</a>";
     echo "</li>";
     echo "<li class='nav-item'>";
       echo "<div class='dropdown'>
@@ -217,7 +219,7 @@ if(isset($_GET['logout'])){
     <div class="carousel-inner">
 
       <div class="carousel-item active">
-        <img src="<?php echo $row['slider_image']; ?>" alt="New York">
+        <a href="<?php echo $row['phplink']; ?>"><img src="<?php echo $row['slider_image']; ?>" alt="New York"></a>
         <div class="carousel-caption">
           <h1><?php echo $row['caption_heading']; ?></h1>
           <p><?php echo $row['caption_content']; ?></p>
@@ -228,7 +230,7 @@ if(isset($_GET['logout'])){
     
     while($f = $res1->fetch_assoc()){
       echo "<div class='carousel-item'>";
-      echo "<img src=".$f['slider_image'].">";
+      echo "<a href='$f[phplink]'><img src=".$f['slider_image']."></a>";
       echo "<div class='carousel-caption'>";
       echo "<h1>".$f['caption_heading']."</h1>";
       echo "<p>".$f['caption_content']."</p>";
@@ -267,7 +269,7 @@ if(isset($_GET['logout'])){
         echo "<div class='card-body'>";
         echo "<h4 class='card-title'>".$f2['grid_content_title']."</h4>";
         echo "<p class='card-text'>".$f2['grid_content']."</p>";
-        echo "<a href='#'><button><i class='fa'>&#xf04b</i></button></a>";
+        echo "<a href='http://localhost:3005/music/play.php?artist=selena'><button><i class='fa'>&#xf04b</i></button></a>";
         echo "</div>";
         echo "</div>";
         echo "</div>";
