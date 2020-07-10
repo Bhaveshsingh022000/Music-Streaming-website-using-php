@@ -13,4 +13,5 @@
 <br><br>
 <h2>Screenshots</h2>
  <img src = "https://user-images.githubusercontent.com/43093974/87068915-edfb2000-c233-11ea-8e42-0528166a1b82.PNG" />
-
+ <br>
+<img src ="https://user-images.githubusercontent.com/43093974/87120421-f9833100-c29d-11ea-8f16-a74f56e6755b.PNG" />
